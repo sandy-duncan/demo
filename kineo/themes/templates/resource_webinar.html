@@ -1,0 +1,41 @@
+{{ partial:resources-banner }}
+
+<section>
+
+  <div class="container grid cols-6-6">
+
+    <div class="col">
+      {{ full_bard_1 }}
+        {{ partial:bards/full_bard_1 }}
+      {{ /full_bard_1 }}
+      {{ partial:components/related_tags }}
+    </div>
+
+    <div class="col">
+      {{ if hubspot_form_script }}
+        <div class="kineo-form-wrapper --black-borders">
+          <h4>{{ headline }}</h4>
+          <div class="resource-form">
+            {{ hubspot_form_script }}
+          </div>
+        </div>
+      {{ /if }}
+      <!-- or -->
+      {{ if author }}
+        <div>
+          {{ partial:components/speakers_accordion }}
+        </div>
+      {{ /if }}
+    </div>
+
+  </div><!-- close container grid -->
+
+  {{ partial:components/share_links }}
+
+</section>
+
+{{ partial:components/related_posts }}
+
+{{ if hide_contact_form != "true" }}
+  {{ partial:footer-form-container }}
+{{ /if }}

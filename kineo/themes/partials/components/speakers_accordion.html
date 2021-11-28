@@ -1,0 +1,23 @@
+
+<div class="speakers-accordion">
+  <h4>Your speakers are</h4>
+  <hr>
+  {{ author }}
+    <div class="speakers-panel">
+      <div class="speakers-tab">
+        <h4>{{ title }}</h4>
+        <span class="plus-icon"> + </span>
+      </div>
+      <div class="more-info">
+        <div class="flex">
+          {{ asset:profile_picture }}
+            <img src="{{ url }}" alt="{{ alt }}">
+          {{ /asset:profile_picture }}
+          <div class="bio">
+            {{ biography }}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{ /author }}
+</div>

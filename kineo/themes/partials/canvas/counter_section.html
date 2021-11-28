@@ -1,0 +1,23 @@
+<section class="countup {{ background_colour.label }}">
+
+  <div class="container mb-medium ta-c">
+    {{ content_above_columns.basic_bard }}
+      {{ partial:bards/basic_bard }}
+    {{ /content_above_columns.basic_bard }}
+  </div>
+
+  <div class="numbers container mt-medium">
+    {{ numbers }}
+      <div class="number-box">
+        {{ if icon }}
+          <img src="{{ glide:icon width='75' }}" alt="{{ alt }}">
+        {{ /if }}
+        <span data-count="{{ count_to }}" style="color:{{ colour.value }};">{{ count_from }}</span>
+        {{ if sub_text }}
+          <h3>{{ sub_text }}</h3>
+        {{ /if }}
+      </div>
+    {{ /numbers }}
+  </div>
+
+</section>

@@ -1,0 +1,11 @@
+{{ if alt_external_link }}
+    <p class="alt-link"><a href="{{ alt_external_link }}" rel="noopener" class="smallcaps bold" {{ if alt_new_window }}target="_blank"{{ /if }}>{{ alt_link_text }}</a> &nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+  {{ elseif alt_link_to }}
+    {{ relate:alt_link_to }}
+      <p class="alt-link"><a href="{{ url }}" class="alt-link smallcaps bold" {{ if alt_new_window }}target="_blank"{{ /if }}>{{ alt_link_text }}</a> &nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+    {{ /relate:alt_link_to }}
+  {{ elseif alt_collection_link }}
+    {{ relate:alt_collection_link }}
+      <p class="alt-link"><a href="{{ url }}" class="alt-link smallcaps bold" {{ if alt_new_window }}target="_blank"{{ /if }}>{{ alt_link_text }}</a> &nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+    {{ /relate:alt_collection_link }}
+{{ /if }}

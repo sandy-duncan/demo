@@ -1,0 +1,155 @@
+<style media="screen">
+  @media screen and (max-width:749px) {
+    .hero-bg-image {
+      background-image: none;
+    }
+  }
+
+  @media screen and (min-width:750px) {
+    .no-webp .hero-bg-image {
+      background-image: url('{{ glide:hero_image width='700' }}');
+    }
+    .webp .hero-bg-image {
+      background-image: url('{{ glide:hero_image width='700' format='webp' }}');
+    }
+  }
+
+  {{ relate:hero_case_study }}
+    {{ assets:page_banner_image }}
+    .no-webp .hero-case-study {
+      background-image:url('{{ glide:url width='600' }}'); background-position:{{ focus_css }};
+    }
+    .webp .hero-case-study {
+      background-image:url('{{ glide:url width='600' format='webp' }}');
+    }
+    {{ /assets:page_banner_image }}
+  {{ /relate:hero_case_study }}
+</style>
+
+<div id="home-page">
+
+  <div class="hero {{ gradient_background }}">
+
+    <div class="hero-text">
+      <div class="container">
+        <h1 class="white">{{ hero_text | widont }} </h1>
+          {{ if add_hero_link }}
+            {{ relate:hero_link }}
+              <br><a href="{{ url }}" class="button inverted mt0">{{ link_text }}</a>
+            {{ /relate:hero_link }}
+          {{ /if }}
+      </div>
+    </div>
+
+    {{ if hero_image }}
+      <div class="hero-bg-image">
+      </div>
+    {{ /if }}
+
+  </div>
+
+  <section class="bg-grey">
+    <div class="container">
+      <h2>{{ products_heading }}</h2>
+
+      {{ if products_array | count == "4" }}
+
+        <div class="grid cols-3-3-3-3 small-gap">
+          {{ products_array }}
+            <div class="col solution">
+              <div>
+                <picture>
+                  <source srcset="{{ glide:product_image width='420' format='webp' }}" type="image/webp">
+                  <img src="{{ glide:product_image width='420' }}" alt="{{ alt }}">
+                </picture>
+                {{ product_text }}
+              </div>
+              <div class="mt15">
+                {{ relate:product_link_to }}
+                  <a href="{{ url }}" class="button inverted">{{ product_button_text }}</a>
+                {{ /relate:product_link_to }}
+              </div>
+            </div>
+          {{ /products_array }}
+        </div>
+
+      {{ else }}
+
+        <div class="grid cols-4-4-4 small-gap">
+          {{ products_array }}
+            <div class="col solution">
+              <picture>
+                <source srcset="{{ glide:product_image width='420' format='webp' }}" type="image/webp">
+                <img src="{{ glide:product_image width='420' }}" alt="{{ alt }}">
+              </picture>
+              {{ product_text }}
+              {{ relate:product_link_to }}
+                <a href="{{ url }}" class="button inverted">{{ product_button_text }}</a>
+              {{ /relate:product_link_to }}
+            </div>
+          {{ /products_array }}
+        </div>
+
+      {{ /if }}
+
+    </div>
+  </section>
+
+  <section class="bg-dark-grey white">
+    <div class="container med-v-margin">
+      <h3 class="ta-c">{{ advocacy_heading }}</h3>
+      <div class="advocacy">
+        {{ relate:featured_case_studies }}
+          <div>
+            <a href="{{ url }}" aria-label="{{ title }}">
+              <picture>
+                <source srcset="{{ glide:brand_logo format='webp' }}" type="image/webp">
+                <img src="{{ glide:brand_logo }}" alt="{{ alt }}" loading="lazy">
+              </picture>
+            </a>
+          </div>
+        {{ /relate:featured_case_studies }}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-grey">
+    <div class="container our-results">
+      <h2>{{ hero_case_heading }}</h2>
+      <div class="grid cols-6-6">
+        <div class="col">
+          {{ left_column.basic_bard }}
+            {{ partial:bards/basic_bard }}
+          {{ /left_column.basic_bard }}
+        </div>
+        <div class="col">
+          {{ right_column_text }}
+          {{ relate:hero_case_study }}
+            <a class="hero-case-study" href="{{ url }}" aria-label="{{ title }}">
+              <picture>
+                <source srcset="{{ glide:brand_logo format='webp' }}" type="image/webp">
+                <img src="{{ glide:brand_logo }}" alt="{{ alt }}" loading="lazy">
+              </picture>
+            </a>
+          {{ /relate:hero_case_study }}
+          {{ if quote_for_case_study }}
+            <blockquote>
+              <p>{{ quote_for_case_study }}</p>
+            </blockquote>
+          {{ /if }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ canvas }}
+    {{ if type == "2_column_section" }}
+      {{ partial:canvas/2_column_section }}
+    {{ elseif type == "carousel" }}
+      {{ partial:canvas/carousel }}
+    {{ /if }}
+  {{ /canvas }}
+
+  {{ partial:contact-cta }}
+
+</div>

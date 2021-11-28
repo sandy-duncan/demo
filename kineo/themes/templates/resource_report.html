@@ -1,0 +1,35 @@
+
+{{ partial:resources-banner }}
+
+<section>
+
+  <div class="container grid cols-8-4">
+
+    <div class="col">
+      {{ full_bard_1 }}
+        {{ partial:bards/full_bard_1 }}
+      {{ /full_bard_1 }}
+      {{ partial:components/related_tags }}
+    </div>
+
+    <div class="col">
+      <div class="download-resource-wrapper">
+        <h3>{{ file_headline }}</h3>
+        {{ if file_text }}
+          <p>{{ file_text }}</p>
+        {{ /if }}
+        <a href="{{ asset:file }}{{ url }}{{ /asset:file }}" target="_blank"><img src="{{ glide:preview_image width="300" }}" alt="{{ alt }}"></a>
+      </div>
+    </div>
+
+  </div>
+
+  {{ partial:components/share_links }}
+
+</section>
+
+{{ partial:components/related_posts }}
+
+{{ if hide_contact_form != "true" }}
+  {{ partial:footer-form-container }}
+{{ /if }}

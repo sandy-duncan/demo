@@ -1,0 +1,17 @@
+<div class="case-inner" {{ asset:preview_panel_image }} style="background-image: url('{{ glide:url width='320' quality='80' }}'); background-position: {{ focus_css }}" {{ /asset:preview_panel_image }}>
+  <picture class="case-logo">
+    {{ assets:brand_logo }}
+      <source srcset="{{ glide:url width="250" format="webp" }}" type="image/webp">
+      <img src="{{ glide:url width="250" }}" alt="{{ alt }}" loading="lazy">
+    {{ /assets:brand_logo }}
+  </picture>
+  <p class="case-teaser">{{ teaser_text }}</p>
+  <div class="tags">
+    {{ sector }}<span>{{ title }}</span>{{ /sector }}
+  </div>
+  <span class="read-more smallcaps bold">READ MORE</span>
+  {{ if overlay }}
+    <div class="overlay">
+    </div>
+  {{ /if }}
+</div>

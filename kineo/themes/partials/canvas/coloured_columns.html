@@ -1,0 +1,34 @@
+
+<section class="{{ if background_colour }}{{ background_colour.label }}{{ else }}bg-emerald{{ /if }}" style="position:relative;">
+
+  <span class="trick-bg"></span>
+
+  <div class="container" style="position:relative;">
+
+    {{ if heading }}
+      <h2 class="white coloured-cols-pre-head">{{ heading }}</h2>
+    {{ /if }}
+
+    <div class="grid cols-4-8 coloured-cols">
+
+      <div class="col left-panel-coloured">
+        {{ left_section.basic_bard }}
+          {{ partial:bards/basic_bard }}
+        {{ /left_section.basic_bard }}
+      </div>
+
+      <div class="col right-panel-grey{{ if (column | count) > 1 }} inner-cols-2{{ /if }}" id="get-left">
+       {{ column }}
+        <div class="flex-child">
+          {{ column_content_group.full_bard_1 }}
+            {{ partial:bards/full_bard_1 }}
+          {{ /column_content_group.full_bard_1 }}
+        </div>
+       {{ /column }}
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,77 @@
+{{ 404_content }}
+
+<div class="page-banner" {{ assets:page_banner_image }} style="background-image: url('{{ glide:url width='2000' }}');background-position: {{ focus_css }};" {{ /assets:page_banner_image }}>
+
+  <div class="container">
+
+    <ul class="breadcrumbs smallcaps bold white mt0">
+      {{ nav:breadcrumbs }}
+        {{ if is_current }}
+          <li><span> {{ title }}</span></li>
+        {{ elseif title === "Services" }}
+          <li><span> {{ title }}</span></li>
+        {{ elseif title === "eLearning Topics" }}
+          <li><span> {{ title }}</span></li>
+        {{ else }}
+          <li><a href="{{ url }}"> {{ title }}</a></li>
+        {{ /if }}
+      {{ /nav:breadcrumbs }}
+    </ul>
+
+    <h1 class="white mt0">{{ page_banner_text or title }}</h1>
+
+  </div>
+
+</div>
+
+
+{{ canvas }}
+
+  {{ if type == "1_column_section" }}
+
+    {{ partial:canvas/1_column_section }}
+
+  {{ elseif type == "2_column_section" }}
+
+    {{ partial:canvas/2_column_section }}
+
+  {{ elseif type == "3_column_section" }}
+
+    {{ partial:canvas/3_column_section }}
+
+  {{ elseif type == "large_list_section" }}
+
+    {{ partial:canvas/large_list_section }}
+
+  {{ elseif type == "horizontal_tabs_section" }}
+
+    {{ partial:canvas/horizontal_tabs_section }}
+
+  {{ elseif type == "vertical_tabs_section" }}
+
+    {{ partial:canvas/vertical_tabs_section }}
+
+  {{ elseif type == "coloured_columns"}}
+
+    {{ partial:canvas/coloured_columns }}
+
+  {{ elseif type == "spacer" }}
+
+    {{ partial:canvas/spacer }}
+
+  {{ elseif type == "carousel" }}
+
+    {{ partial:canvas/carousel }}
+
+  {{ /if }}
+
+{{ /canvas }}
+
+{{ /404_content }}
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

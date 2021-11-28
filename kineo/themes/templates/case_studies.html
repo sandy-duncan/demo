@@ -1,0 +1,48 @@
+
+{{ partial:page-banner }}
+
+<section>
+
+  <div class="container">
+
+    <div class="filters">
+      <a id="clear-filters" href="{{ url }}">All sectors</a>
+      {{ taxonomy from="sector" show="all" sort="list" }}
+        <a href="{{ url }}">{{ title }}</a>
+      {{ /taxonomy }}
+    </div>
+
+    <div class="grid small-gap case-studies-layout">
+
+      {{ collection from="case_studies" paginate="true" limit="8" as="posts" }}
+
+        {{ posts }}
+          <div class="col">
+            <a class="case-preview" href="{{ url }}">
+              {{ partial:components/case_study_preview }}
+            </a>
+          </div>
+        {{ /posts }}
+
+
+
+        <div class="pagination-controls">
+          {{ paginate }}
+            {{ auto_links }}
+          {{ /paginate }}
+        </div>
+
+      {{ /collection }}
+
+    </div><!-- close grid -->
+
+  </div><!-- close container -->
+
+</section>
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

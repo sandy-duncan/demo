@@ -1,0 +1,200 @@
+html,
+body
+  // height: 100%
+  min-height: 100%
+  -webkit-font-smoothing: antialiased
+  -webkit-overflow-scrolling: touch
+  -moz-osx-font-smoothing: grayscale
+  text-rendering: optimizeLegibility
+  color: $almost-black
+  font-family: 'Nunito Sans', sans-serif
+  font-size: 97%
+
+  @include screen($tablet)
+    font-size: 100%
+
+body
+  width: 100%
+  margin: 0
+
+  &.lock-scroll
+    overflow: hidden
+
+html
+  background-color: $white
+
+main
+  min-height: 70vh
+  margin: auto
+  // same height as nav
+  padding-top: 65px
+  opacity: 1
+  // transition: opacity 0.5s ease-out
+  // &.loaded
+  //   opacity: 1
+
+// incase of no js
+body.no-js main
+  opacity: 1!important
+
+*
+  box-sizing: border-box
+  &:focus
+    outline: none
+
+img
+  display: block
+  width: 100%
+
+ul
+  padding: 0
+  list-style: none
+
+.clearfix:before, .clearfix:after
+  content: " "
+  display: table
+
+.clearfix:after
+  clear: both
+
+// cookie notice_________________
+.cookie-notice
+  display: block
+  position: fixed
+  bottom: 1.5rem
+  right: 1.5rem
+  left: 1.5rem
+  background: $dark-grey
+  padding: 1rem
+  transition: all 0.5s ease-out
+  border-radius: 5px
+  color: $white
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.5)
+  align-items: center
+  text-align: center
+  transform: translateX(calc(100% + 2rem))
+  -ms-transform: translateX(120%)
+  z-index: 99
+  @include screen($tablet)
+    left: 1.5rem
+    display: flex
+    padding: 10px 25px
+  @include screen($desktop)
+    left: auto
+
+  &.active
+    transform: translateX(0px)
+    -ms-transform: translateX(0px)
+    @include screen($tablet)
+      text-align: left
+
+  #accept-gdpr
+    margin-top: 1rem
+    @include screen($tablet)
+      margin-top: 0
+      margin-left: 3rem
+
+// set location pop-up_____________________
+#set-location
+  position: fixed
+  background: $dark-grey
+  color: white
+  border-radius: 5px
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.5)
+  padding: 1rem 25px
+  display: none
+  z-index: 99
+  right: 1.5rem
+  left: 1.5rem
+  bottom: 12rem
+  display: block
+  transition: transform 0.5s ease-out
+  transform: translateX(calc(100% + 2rem))
+  -ms-transform: translateX(120%)
+  a
+    color: white
+    margin: 1rem 0
+    transition: 0.2s ease
+    display: block
+    &:hover
+      color: $emerald
+      text-decoration: none
+  &.active
+    transform: translateX(0px)
+    -ms-transform: translateX(0px)
+
+  @include screen($tablet)
+    left: 1.5rem
+    right: 1.5rem
+    bottom: 6rem
+    a
+      margin: 0 .5rem
+      display: inline
+      &:last-of-type
+        margin-right: 0
+      &:first-of-type
+        margin-left: 1rem
+
+  @include screen($desktop)
+    left: auto
+    a
+      margin: 0 1rem
+      &:first-of-type
+        margin-left: 2rem
+
+#reset-location
+  font-size: 90%
+  transition: color 0.2s ease
+  margin: 1rem 0 0 22px
+  display: inline-block
+  cursor: pointer
+  &:hover
+    color: $emerald
+
+// IE
+.no-cssgrid
+  .ie-warning
+    position: fixed
+    top: 100px
+    left: 3rem
+    background: $light-grey
+    z-index: 9999999
+    text-align: center
+    padding: 1rem 2rem
+    border: 1px solid red
+    display: none
+    &.active
+      display: block
+
+// all other browsers
+.ie-warning
+  display: none
+  &.active
+    display: none
+
+// breakpoint identifier for local_______
+.break-info
+  position: fixed
+  top: 0
+  left: 0
+  background-color: dodgerblue
+  z-index: 999999
+  color: $white
+  padding: 0 5px
+  &::before
+    content: "MOBILE"
+    @include screen($tablet)
+      content: "TABLET"
+    @include screen($desktop)
+      content: "DESKTOP"
+    @include screen($large)
+      content: "LARGE"
+
+.template-type
+  position: fixed
+  top: 0
+  right: 0
+  background-color: dodgerblue
+  z-index: 999999
+  color: $white
+  padding: 0 5px

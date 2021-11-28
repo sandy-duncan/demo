@@ -1,0 +1,25 @@
+{{ partial:webp-for-page-banner }}
+
+<div class="page-banner">
+
+  <div class="container">
+
+    <ul class="breadcrumbs smallcaps bold white mt0">
+      {{ nav:breadcrumbs }}
+        {{ if is_current }}
+          <li><span> {{ title }}</span></li>
+        {{ elseif title === "Services" }}
+          <li><span> {{ title }}</span></li>
+        {{ elseif title === "eLearning Topics" }}
+          <li><span> {{ title }}</span></li>
+        {{ else }}
+          <li><a href="{{ url }}"> {{ title }}</a></li>
+        {{ /if }}
+      {{ /nav:breadcrumbs }}
+    </ul>
+
+    <h1 class="white mt0">{{ page_banner_text or title }}</h1>
+
+  </div>
+
+</div>

@@ -1,0 +1,63 @@
+
+{{ partial:page-banner }}
+
+{{ canvas }}
+
+  {{ if type == "1_column_section" }}
+
+    {{ partial:canvas/1_column_section }}
+
+  {{ elseif type == "2_column_section" }}
+
+    {{ partial:canvas/2_column_section }}
+
+  {{ elseif type == "3_column_section" }}
+
+    {{ partial:canvas/3_column_section }}
+
+  {{ elseif type == "large_list_section" }}
+
+    {{ partial:canvas/large_list_section }}
+
+  {{ elseif type == "horizontal_tabs_section" }}
+
+    {{ partial:canvas/horizontal_tabs_section }}
+
+  {{ elseif type == "vertical_tabs_section" }}
+
+    {{ partial:canvas/vertical_tabs_section }}
+
+  {{ elseif type == "coloured_columns"}}
+
+    {{ partial:canvas/coloured_columns }}
+
+  {{ elseif type == "spacer" }}
+
+    {{ partial:canvas/spacer }}
+
+  {{ elseif type == "carousel" }}
+
+    {{ partial:canvas/carousel }}
+
+  {{ elseif type == "left_overlay_section" }}
+
+    {{ partial:canvas/left_overlay }}
+
+  {{ elseif type == "anchor_pod" }}
+
+    {{ partial:canvas/anchor_pod }}
+
+  {{ elseif type == "counter_section" }}
+
+    {{ partial:canvas/counter_section }}
+
+  {{ /if }}
+
+{{ /canvas }}
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

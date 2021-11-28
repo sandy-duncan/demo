@@ -1,0 +1,55 @@
+
+{{ if background_image }}
+
+  <style media="screen">
+      .no-webp .element-{{ index }} {
+        background-image: url('{{ glide:background_image width='450' }}');
+      }
+      .webp .element-{{ index }} {
+        background-image: url('{{ glide:background_image width='450' format='webp' }}');
+      }
+      @media screen and (min-width: 750px) {
+        .no-webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1025' }}');
+        }
+        .webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1025' format='webp' }}');
+        }
+      }
+      @media screen and (min-width: 1025px) {
+        .no-webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1400' }}');
+        }
+        .webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1400' format='webp' }}');
+        }
+      }
+      @media screen and (min-width: 1400px) {
+        .no-webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='2000' }}');
+        }
+        .webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='2000' format='webp' }}');
+        }
+      }
+  </style>
+
+{{ /if }}
+
+<section class="{{ if background_image }}element-{{ index }} {{ /if }}{{ background_colour.label }}{{ if white_text }} white{{ /if }}{{ if border_bottom }} border-bottom{{ /if }}" {{ if background_image }}{{ assets:background_image }}style="background-position:{{ focus_css }};"{{ /assets:background_image }}{{ /if }}>
+
+  <div class="container">
+
+    <div class="single-column {{ column_align }} {{ column_width }}" style="text-align:{{ text_align }}">
+
+      {{ single_column.full_bard_1 }}
+
+        {{ partial:bards/full_bard_1 }}
+
+      {{ /single_column.full_bard_1 }}
+
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,17 @@
+<section class="{{ background_colour.label }}">
+  <div class="container ta-c mb-medium mt-medium">
+    {{ basic_bard }}
+      {{ partial:bards/basic_bard }}
+    {{ /basic_bard }}
+    <div class="anchor-pod">
+      {{ anchors }}
+        <div class="anchor-pod-link {{ if alternate_hover }}alternate-hover{{ /if }} smallcaps bold" data-anchor="{{ match_text }}">
+          {{ if anchor_icon }}
+            <img src="{{ glide:anchor_icon width='150' }}" alt="{{ alt }}">
+          {{ /if }}
+          <span>{{ anchor_label }}</span>
+        </div>
+      {{ /anchors }}
+    </div>
+  </div>
+</section>

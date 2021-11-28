@@ -1,0 +1,303 @@
+//NAV BAR____________________________
+header
+  padding: 1rem $space1
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  background: $black
+  z-index: 99
+  height: 65px
+  transition: top 0.2s ease
+  li, span
+    font-weight: 600
+  p
+    text-transform: none
+  &.nav-up
+    top: -75px
+
+  @include screen($desktop)
+    height: auto
+    padding: 0
+    position: fixed
+    align-items: baseline
+    span
+      cursor: default
+
+nav
+  margin: auto
+  background: inherit
+  position: relative
+
+// home button wrapper
+.home-button
+  display: inline-block
+  margin-top: 3px
+  a
+    display: inline-block
+    max-width: 100px
+  @include screen($desktop)
+    margin-top: 0
+    display: flex
+    z-index: 100
+    position: absolute
+    left: 0.5rem
+    top: 50%
+    transform: translateY(-50%)
+  @include screen($large)
+    left: 1.5rem
+    a
+      max-width: 120px
+
+// hamburger open mobile nav
+#hamburger
+  color: $white
+  float: right
+  font-size: 1.5rem
+  margin-left: $space1
+  width: 2rem
+  text-align: right
+  margin-top: 2px
+  i
+    transition: all .25s ease-in-out
+  &.active
+    i
+      transform: rotateY(180deg)
+      transform-origin: center center
+      color: $emerald
+  @include screen($desktop)
+    display: none
+
+// MAIN NAV _________________________
+ul.nav
+  position: fixed
+  top: 65px
+  bottom: 0
+  left: 0
+  right: 0
+  background: inherit
+  margin: 0
+  border-top: 1px solid $med-grey
+  display: none
+  letter-spacing: 1px
+  &.active
+    display: block
+  a, span
+    padding: 1rem $space1
+    color: $white
+    display: block
+    &.active
+      color: $emerald
+  li
+    border-bottom: 1px solid $med-grey
+  p
+    letter-spacing: normal
+
+    &.contact
+      background-color: $emerald
+
+  @include screen($desktop)
+    border-top: none
+    position: static
+    display: flex
+    justify-content: flex-end
+    font-size: 0.9rem
+    li
+      border-bottom: none
+      &.open
+        background: $white
+        span
+          color: $emerald
+      a, span
+        padding: $space1 0.75rem
+        height: 100%
+        &.active
+          color: $emerald
+        &:hover
+          color: $emerald
+          background: $white
+          text-decoration: none
+
+      &.contact
+        transform: translateY(24px)
+        margin: 0 0 0 0.75rem
+        background-color: transparent
+        a
+          border: 1px solid $white
+          display: inline
+          padding: 5px 10px
+          background-color: $pink
+          color: $white
+          &:hover
+            background-color: $white
+            color: $pink
+
+  @include screen($large)
+    font-size: 100%
+    li
+      a, span
+        padding: $space1
+      &.contact
+        margin: 0 0 0 1.5rem
+
+
+// SUB NAV_________________________________
+.sub-nav
+  background: $black
+  display: none
+  ul
+    li
+      border-bottom: none
+      border-top: 1px solid $med-grey
+      a
+        padding: 1rem 2.5rem
+  .inner
+    .summary
+      display: none
+    .links
+      .nav-snippet
+        display: none
+
+  @include screen($desktop)
+    background: $white
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    bottom: auto
+    display: none
+    grid-template-columns: auto minmax(0, $container) auto
+    &.open
+      display: inline-grid
+    ul
+      display: flex
+      flex-wrap: wrap
+      li
+        border-top: 0
+        padding: 0 2rem 2rem 0
+        flex-basis: 33%
+        &:nth-child(3n)
+          padding: 0 0 2rem 0
+        i
+          display: inline
+        a
+          color: $black
+          padding: 0
+          letter-spacing: 1px
+          display: block
+
+    .inner
+      display: flex
+      .summary
+        background: $black
+        width: 30%
+        color: $white
+        padding: 3rem 3rem 3rem 6rem
+        display: block
+      .links
+        background: $white
+        width: 70%
+        padding: 2.7rem 6rem 3rem 3rem
+        .nav-snippet
+          margin: 0 0 2rem 0
+          display: block
+
+// for internet explorer
+.no-cssgrid
+  .sub-nav
+    @include screen($desktop)
+      display: none
+      &.open
+        display: block
+
+// search
+.search-container
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: rgba(255,255,255,0.95)
+  display: none
+
+  #close-search
+    position: absolute
+    right: $space1
+    top: 20%
+    font-size: 3rem
+    color: $emerald
+    cursor: pointer
+    @include screen($desktop)
+      color: $dark-grey
+      font-size: 5rem
+      left: 83%
+      top: 15%
+      &:hover
+        color: $emerald
+
+  .search-bar
+    position: fixed
+    padding: 1.5rem
+    left: 0
+    right: 0
+    top: 50%
+    transform: translateY(-50%)
+    @include screen($desktop)
+      left: 17%
+      right: 17%
+      top: 20%
+      transform: none
+
+    form
+      @include screen($desktop)
+        display: flex
+
+      input[type="text"]
+        padding: .75rem
+        width: 100%
+        border: 1px solid $med-grey
+        @include screen($desktop)
+          font-size: 1.25rem
+          padding: 1rem
+          box-shadow: 0 5px 10px 0 rgba(0,0,0,0.6)
+
+      input[type="submit"]
+        background-color: $black
+        border-color: $black
+        color: $white
+        cursor: pointer
+        float: right
+        margin: 1.25rem 0
+        padding: .75rem 1.5rem
+        &:hover
+          color: $emerald
+
+        @include screen($desktop)
+          margin: 0 1.25rem
+          padding: 1rem 2rem
+          font-size: 1.25rem
+          box-shadow: 0 5px 10px 0 rgba(0,0,0,0.6)
+
+
+
+#search-icon-mobile
+  float: right
+  color: $white
+  font-size: 1.2rem
+  padding-top: 5px
+  @include screen($desktop)
+    display: none
+
+li#search-icon
+  display: none
+  @include screen($desktop)
+    display: inherit
+    color: $white
+    position: relative
+    cursor: pointer
+    width: 4.5rem
+    font-size: 1.2rem
+    &:hover, &.active
+      color: $emerald
+    i
+      @include centered

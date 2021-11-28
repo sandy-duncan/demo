@@ -1,0 +1,55 @@
+{{ partial:page-banner }}
+
+<section class="bg-grey">
+  <div class="container contact-wrapper">
+
+    <div class="form-container{{ if locale != 'au' }} dot-digital-form {{ /if }}">
+      <h2 class="mt0 ta-c">{{ heading }}</h2>
+      <p class="ta-c">{{ sub_heading }}</p>
+      <div class="kineo-form-wrapper --black-borders">
+        {{ if locale == "au" }}
+          {{ partial:au-contact-form-webtolead }}
+        {{ else }}
+          {{ partial:dotdigital-form-main }}
+        {{ /if }}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container locations">
+    {{ if locale == "es" }}
+      <h2>Nuestras Ubicaciones</h2>
+    {{ else }}
+      <h2>Our Locations</h2>
+    {{ /if }}
+    <br>
+    {{ region }}
+      <p class="smallcaps bold">{{ continent_label }}</p>
+      <hr class="bg-emerald">
+      <div class="grid small-gap cols-3-3-3-3">
+        {{ office }}
+          <div class="col office">
+            <h3>{{ name }}</h3>
+            {{ if address }}
+              <p class="maps-link"><a href="{{ google_maps_link }}" target="_blank" rel="noreferrer">{{ address }} <i class="fas fa-external-link-alt"></i></a></p>
+            {{ /if }}
+            <p class="mb0"><i class="fa fa-phone" aria-hidden="true"></i> {{ phone }}</p>
+            <p class="mt0"><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:{{ email }}">{{ email }}</a></p>
+          </div>
+        {{ /office }}
+      </div>
+    {{ /region }}
+
+  </div>
+</section>
+
+<section {{ asset:cta_background_image }} style="background-image: url('{{ glide:url }}'); background-position: {{ focus_css }}" {{ /asset:cta_background_image }}>
+  <div class="container ta-c white">
+    {{ basic_bard }}
+      {{ partial:bards/basic_bard }}
+    {{ /basic_bard }}
+  </div>
+</section>

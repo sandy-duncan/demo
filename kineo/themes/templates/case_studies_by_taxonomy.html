@@ -1,0 +1,55 @@
+
+<div class="page-banner" {{ get_content from="d86b160e-8d92-4e13-9445-2fcb4b34d44a" }}{{ assets:page_banner_image }} style="background-image: url('{{ glide:url }}'); background-position: {{ focus_css }}" {{ /assets:page_banner_image }}{{ /get_content }}>
+  <div class="container">
+    <ul class="breadcrumbs smallcaps bold white mt0">
+      {{ nav:breadcrumbs }}
+        {{ if ! is_current }}
+          <li>
+            <a href="{{ url }}">{{ title }}</a>
+          </li>
+        {{ /if }}
+      {{ /nav:breadcrumbs }}
+      <li> {{ title }}</li>
+    </ul>
+    <h1 class="white mt0">{{ page_banner_text or title }}</h1>
+  </div>
+</div>
+
+
+<section>
+  <div class="container">
+
+    <div class="filters">
+      <a href="{{ parent }}{{ url }}{{ /parent }}">All sectors</a>
+      {{ taxonomy from="sector" show="all" sort="list" }}
+        <a href="{{ url }}" {{ if slug == last_segment }} class="active" {{ /if }}>{{ title }}</a>
+      {{ /taxonomy }}
+    </div>
+
+    <div class="grid small-gap case-studies-layout">
+      {{ collection from="case_studies" taxonomy="true" paginate="true" limit="8" as="posts" }}
+        {{ posts }}
+          <div class="col">
+            <a class="case-preview" href="{{ url }}">
+              {{ partial:components/case_study_preview }}
+            </a>
+          </div>
+        {{ /posts }}
+
+        <div class="pagination-controls">
+          {{ paginate }}
+            {{ auto_links }}
+          {{ /paginate }}
+        </div>
+      {{ /collection }}
+    </div>
+
+  </div>
+</section>
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

@@ -1,0 +1,71 @@
+// Footer styles_______________________
+footer
+  background: $light-grey
+  overflow: auto
+  color: $black
+  border-top: 1px solid $med-grey
+  a
+    color: $black
+    transition: color 0.2s ease
+    &:hover
+      text-decoration: none
+      color: $emerald
+
+.footer-grid
+  display: grid
+  grid-template-columns: repeat(12, 1fr)
+  grid-gap: $space1
+  @include screen($tablet)
+    grid-gap: $space2
+
+
+
+.footer-col
+  img
+    max-width: 130px
+  ul
+    margin: 1.5rem 0 0 0
+    font-size: 90%
+  li
+    padding-bottom: 1rem
+    &:last-child
+      padding-bottom: 0
+
+  grid-column: span 6
+  &:first-of-type
+    grid-column: span 12
+
+  @include screen($tablet)
+    grid-column: span 3
+    &:first-of-type
+      grid-column: span 3
+    img
+      max-width: 150px
+
+
+// Copyright section_________________
+.copyright
+  padding: 1rem 0
+  color: $black
+  border-top: 1px solid $med-grey
+  text-align: center
+
+  .inner
+    @include screen($tablet)
+      display: flex
+      justify-content: space-between
+
+    .copyright-text
+      font-size: 70%
+      a, a:hover
+        text-decoration: underline
+      @include screen($tablet)
+        transform: translateY(6px)
+
+    .social-links
+      font-size: 1.1rem
+      margin-top: 1rem
+      a
+        margin-left: 0.5rem
+      @include screen($tablet)
+        margin-top: 0

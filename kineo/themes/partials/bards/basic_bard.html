@@ -1,0 +1,24 @@
+{{ if type == "text" }}
+
+  {{ if text === "<p><br></p>" }}
+  {{ else }}
+    {{ text }}
+  {{ /if }}
+
+{{ elseif type == "pre_heading_set" }}
+
+  <p class="pre-heading">{{ pre_heading }}</p>
+
+{{ elseif type == "button_set" }}
+
+  {{ partial:components/button }}
+
+{{ elseif type == "alternate_link" }}
+
+  {{ partial:components/alternate_link }}
+
+{{ elseif type == "anchor_point_set" }}
+
+  <span id="{{ anchor_point }}"></span>
+
+{{ /if }}

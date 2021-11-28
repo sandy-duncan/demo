@@ -1,0 +1,79 @@
+<header>
+
+  <nav>
+
+    <div class="home-button">
+      <a href="{{ locale_url }}">
+        <img src="/img/kineo_logo_white_colour_no_strap.png" alt="Kineo logo">
+      </a>
+    </div>
+
+    <div id="hamburger">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </div>
+    <div id="search-icon-mobile">
+      <i class="fas fa-search"></i>
+    </div>
+
+    <ul class="nav">
+      {{ nav from="/" include_home="false" max_depth="6" include_in_nav:is="true" }}
+        {{ if children }}
+          <li class="has-children">
+            <span {{ if is_current or is_parent }}class="active"{{ /if }}> {{ title }} <i class="fas fa-caret-down"></i></span>
+            <div class="sub-nav">
+              <div class="blackbg">
+              </div>
+              <div class="inner">
+                <div class="summary">
+                  <div class="smallcaps bold mt0">{{ title }}</div>
+                  <span class="greenline"></span>
+                  <p class="h3 mb0">{{ sub_heading | widont }}</p>
+                </div>
+
+                <div class="links">
+                  {{ if nav_snippet }}
+                    <div class="nav-titles nav-snippet">{{ nav_snippet | widont }}</div>
+                  {{ /if }}
+                  <ul>
+                    {{ children }}
+                      <li><a href="{{ url }}">{{ title }}&nbsp;<i class="fas fa-chevron-right chev-right no-mobile"></i></a></li>
+                    {{ /children }}
+                  </ul>
+                </div>
+
+              </div>
+
+              <div class="whitebg">
+              </div>
+            </div>
+          </li>
+        {{ else }}
+          <li {{ if slug | contains:contact }}class="contact" {{ endif }}>
+            <a {{ if is_current or is_parent }}class="active"{{ endif }} href="{{ url }}">{{ title }}</a>
+          </li>
+        {{ /if }}
+
+      {{ /nav }}
+      <li id="search-icon">
+        <i class="fas fa-search"></i>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="search-container">
+    <span id="close-search">&times;</span>
+
+    <div class="search-bar">
+
+      {{ search_overlay:basic_bard }}
+        {{ partial:bards/basic_bard }}
+      {{ /search_overlay:basic_bard }}
+
+      <form action="{{ get_content from="250c1f3b-839c-46ad-8337-fbe32f1c3342" }}{{ url }}{{ /get_content }}" method="GET">
+        <input type="text" name="q" placeholder="e.g. elearning" />
+        <input type="submit" value="search">
+      </form>
+    </div>
+  </div>
+
+</header>

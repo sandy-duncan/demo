@@ -1,0 +1,35 @@
+<div class="resources-banner"
+style="background-color:{{ colour.value }};
+{{ if page_banner_image }}
+  {{ assets:page_banner_image }}
+    background-image: url('{{ glide:url }}'); background-position: {{ focus_css }};
+  {{ /assets:page_banner_image }}
+{{ /if }}">
+
+  <div class="container flex" style="position:relative;">
+
+    <div class="banner-date smallcaps bold">
+      <span class="day">{{ date format="d" }}</span><br>
+      <span>{{ date format="M" }}</span>
+      <span>{{ date format="Y" }}</span>
+    </div>
+
+    <div class="bread-and-title">
+      <ul class="breadcrumbs smallcaps bold white mt0"{{ if colour.label == 'grey' }} style="color:black;"{{ /if }}>
+        {{ nav:breadcrumbs }}
+          {{ if ! is_current }}
+            <li>
+              <a href="{{ url }}"{{ if colour.label == 'grey' }} style="color:black;"{{ /if }}>{{ title }}</a>
+            </li>
+          {{ /if }}
+        {{ /nav:breadcrumbs }}
+      </ul>
+
+      <h1 class="white mtb0"{{ if colour.label == 'grey' }} style="color:black;"{{ /if }}>{{ title }}</h1>
+
+      <span class="mobile-date smallcaps bold">{{ pretty_name }} | {{ date format="d.m.Y" }}</span>
+    </div>
+
+  </div>
+
+</div>

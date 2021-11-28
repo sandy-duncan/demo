@@ -1,0 +1,75 @@
+{{ partial:page-banner }}
+
+<section>
+  <div class="container">
+    <div class="site-map">
+      <ul>
+       {{ nav from="/" max_depth="3" }}
+
+          <li>
+            <a href="{{ url }}">{{ title }}</a>
+            {{ if seo.robots =="noindex" }}<span style="color:red;"> (NO INDEX) </span>{{ /if }}
+            {{ if children }}
+             <ul class="site-map-children">{{ *recursive children* }}</ul>
+            {{ /if }}
+          </li>
+
+       {{ /nav }}
+      </ul>
+      <br><br><br><br>
+      <h2>Case studies</h2>
+      <ul class="collections">
+        {{ collection from="case_studies" sort="title" }}
+          <li><a href="{{ url }}">{{ title }}</a></li>
+        {{ /collection }}
+      </ul>
+      <hr>
+      <h2>Blogs</h2>
+      <ul class="collections">
+        {{ collection from="blogs" sort="title" }}
+          <li><a href="{{ url }}">{{ title }}</a></li>
+        {{ /collection }}
+      </ul>
+      <hr>
+      <h2>News</h2>
+      <ul class="collections">
+        {{ collection from="news" sort="title" }}
+          <li><a href="{{ url }}">{{ title }}</a></li>
+        {{ /collection }}
+      </ul>
+      <hr>
+
+
+
+
+        {{ collection from="podcasts" as="results" }}
+          <h2>Podcasts</h2>
+          <ul class="collections">
+            {{ results sort="title" }}
+              <li><a href="{{ url }}">{{ title }}</a></li>
+            {{ /results }}
+          </ul>
+          <hr>
+        {{ /collection }}
+
+
+
+
+
+      <h2>Webinars</h2>
+      <ul class="collections">
+        {{ collection from="webinars" sort="title" }}
+          <li><a href="{{ url }}">{{ title }}</a></li>
+        {{ /collection }}
+      </ul>
+      <hr>
+
+      <h2>Reports & Guides</h2>
+      <ul class="collections">
+        {{ collection from="reports" sort="title" }}
+          <li><a href="{{ url }}">{{ title }}</a></li>
+        {{ /collection }}
+      </ul>
+    </div>
+  </div>
+</section>

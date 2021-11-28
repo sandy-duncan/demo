@@ -1,0 +1,65 @@
+
+<footer>
+  <div class="container small-v-margin footer-grid">
+
+    <div class="footer-col">
+      <img src="/img/kineo_logo_black_colour_strapline.png" alt="Kineo logo" loading="lazy">
+    </div>
+
+    <div class="footer-col">
+      {{ if footer:footer_nav_1 }}
+        <span class="smallcaps extra-bold">{{ footer:footer_nav_1_title }}</span>
+        <ul>
+          {{ relate:footer:footer_nav_1 }}
+            <li>
+              <a href="{{ url }}">{{ title }}</a>
+            </li>
+          {{ /relate:footer:footer_nav_1 }}
+        </ul>
+      {{ /if }}
+    </div>
+
+    <div class="footer-col">
+      {{ if footer:footer_nav_2 }}
+        <span class="smallcaps extra-bold">{{ footer:footer_nav_2_title }}</span>
+        <ul>
+          {{ relate:footer:footer_nav_2 }}
+            <li>
+              <a href="{{ url }}">{{ title }}</a>
+            </li>
+          {{ /relate:footer:footer_nav_2 }}
+        </ul>
+      {{ /if }}
+    </div>
+
+    <div class="footer-col">
+      {{ if footer:footer_nav_3 }}
+        <span class="smallcaps extra-bold">{{ footer:footer_nav_3_title }}</span>
+        <ul>
+          {{ relate:footer:footer_nav_3 }}
+            <li>
+              <a href="{{ url }}">{{ title }}</a>
+            </li>
+          {{ /relate:footer:footer_nav_3 }}
+        </ul>
+      {{ /if }}
+    </div>
+
+  </div>
+
+  <!-- copyright section -->
+  <div class="copyright smallcaps extra-bold">
+    <div class="inner container no-v-margin">
+      <div class="copyright-text">
+        &copy; Copyright {{ now format="Y" }} Kineo - a <a href="https://www.cityandguildsgroup.com/">City &amp; Guilds Group</a> Business
+      </div>
+      <div class="social-links">
+        <a href="{{ footer:facebook }}" aria-label="link to facebook"><i class="fab fa-facebook"></i></a>
+        <a href="{{ footer:twitter }}" aria-label="link to twitter"><i class="fab fa-twitter"></i></a>
+        <a href="{{ footer:linkedin }}" aria-label="link to linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="{{ footer:youtube }}" aria-label="link to youtube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+</footer>

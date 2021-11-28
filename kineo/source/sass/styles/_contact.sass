@@ -1,0 +1,248 @@
+// MAIN FORM STYLING______________________
+.kineo-form-wrapper
+  form
+    input[type=text], input[type=email], input[type=tel], select, textarea
+      border-radius: 2px
+      box-sizing: border-box
+      font-family: 'Nunito Sans', sans-serif!important
+      padding: 5px 8px!important
+      border: 1px solid white
+      background-color: transparent
+      color: white
+      font-size: 1rem
+      height: auto
+      width: 100%!important
+      max-width: 100%
+      // -webkit-appearance: none
+      &::placeholder
+        color: rgba(255,255,255,0.7)
+        font-size: 1.1rem
+      &:invalid
+        color: rgba(255,255,255,0.7)
+      &:focus
+        outline: none
+        box-shadow: 0 0 8px rgba(0,177,64,0.5)
+
+    input[type=checkbox]
+      width: 1rem
+      height: 1rem
+      border: none
+      margin: 0 8px 0 0
+      border-radius: 0
+      transform: translateY(3px)
+      cursor: pointer
+
+    input[type=submit]
+      width: auto
+      text-transform: uppercase
+      font-size: 0.8rem!important
+      border: 1px solid $white
+      letter-spacing: 2px
+      cursor: pointer
+      margin-top: $space1
+      padding: .7rem 1.5rem
+      font-weight: bold
+      color: $white
+      background-color: transparent!important
+      background: none
+      transition: all 0.2s ease
+      font-family: 'Nunito Sans', sans-serif
+      border-radius: 0px
+      text-shadow: none
+      box-shadow: none
+      height: auto
+      margin-left: 0.5rem
+      -webkit-appearance: none
+      &:hover:not(.inactive)
+        background-color: $white!important
+        color: $black
+        border: 1px solid $white
+        box-shadow: none
+        font-family: 'Nunito Sans', sans-serif!important
+
+    label
+      font-size: 0.8rem
+
+    option
+      color: black
+
+
+//PARDOT OVERRIDES!
+.kineo-form-wrapper.--pardot-form, #au-contact-form
+  input, select, textarea
+    margin-bottom: 1rem
+
+  input[type=checkbox]
+    float: left
+
+  input[type=submit]
+    margin-top: 1rem
+
+  label.newsletter-label
+    display: inline
+    height: auto
+    margin: 0
+    overflow: initial
+    padding: 0
+    position: static
+    width: auto
+    font-size: 90%
+
+  // flexbox inputs
+  .inputs
+    display: flex
+    flex-wrap: wrap
+    .input-full
+      padding: 0 0.5rem
+      width: 100%
+    .input-half
+      padding: 0 0.5rem
+      width: 100%
+      @include screen($tablet)
+        width: 50%
+
+// for jquery on main contact form
+.nz-states, .au-states
+  display: none
+  &.active
+    display: block
+
+// landing page, partners page
+.kineo-form-wrapper.--landing-page
+  background: $med-grey
+  border: 1px solid $black
+  padding: 2.2rem 1.5rem 1.5rem 1.5rem
+  input[type=submit]
+    margin: 0 0 1rem 0
+
+
+// BLAK BORDERS COLOUR VARIATION!
+.kineo-form-wrapper.--black-borders
+  margin: 0 -0.5rem
+
+  form
+    input[type=text], input[type=email], input[type=tel], select, textarea
+      border: 1px solid $med-grey
+      color: $black
+      background-color: $white
+      &::placeholder
+        color: rgba(0,0,0,0.8)
+      &:invalid
+        color: rgba(0,0,0,0.8)
+      &:focus
+        border: 1px solid $black
+
+    label
+      &.hs-error-msg
+        color: $black
+
+    .hs-richtext p, .hs-richtext p span
+      color: $black!important
+
+    input[type=submit]
+      border: 1px solid $black
+      color: $black
+      background-color: $white!important
+      &:hover:not(.inactive)
+        background-color: $black!important
+        color: $white
+        border: 1px solid $black
+
+    .hs-button:active:not(.inactive):not(.link), .hs-button:focus:not(.inactive)
+      border-top: 1px solid $black!important
+      border-bottom: 1px solid $black!important
+      border-right: 1px solid $black!important
+      border-left: 1px solid $black!important
+
+  .actions
+    text-align: center
+
+// PAGE SPECIFIC STYLYING!
+// contact page
+.contact-wrapper
+  @include screen($tablet)
+    display: flex
+    justify-content: center
+
+  .form-container
+    min-height: 600px
+    @include screen($tablet)
+      width: 75%
+      margin: 0 1.5rem
+      &.dot-digital-form
+        width: 65%
+
+    @include screen($desktop)
+      width: 50%
+
+// footer section
+.contact-footer
+  background: $turquoise
+
+.kineo-form-wrapper.--footer
+  margin: 0 -0.5rem
+
+// Newsletter page
+.newsletter-page
+  section
+    .container:last-of-type
+      margin-bottom: 1.5rem
+
+.kineo-form-wrapper.--newsletter
+  padding: 1.5rem 1rem
+  border: 1px solid $black
+  form
+    margin: 0!important
+    .actions
+      padding: 0!important
+      margin: 0 0 5px 0!important
+
+  @include screen($tablet)
+    max-width: 50%
+    margin: auto
+
+// resource page
+.resource-form
+  form
+    input[type=submit]
+      margin-left: 0
+
+    label
+      // input label
+      display: inline!important
+      color: $white
+
+    .hs-richtext p
+      padding: 0!important
+
+// OFFICE LOCATIONS STYLING!
+.locations
+  .grid:last-of-type
+    .office
+      padding-bottom: 0
+
+.office
+  padding: 0 0 0.5rem 0
+  a
+    color: $emerald
+    &:hover
+      text-decoration: underline
+  i.fa-external-link-alt
+    transform: translateY(-2px)
+    font-size: 65%
+  i.fa-phone, i.fa-envelope
+    font-size: 80%
+
+  p.maps-link
+    a
+      color: $black
+      &:hover
+        color: $emerald
+
+  @include screen($tablet)
+    padding: 0.75rem 0
+    p.maps-link
+      min-height: 75px
+
+  @include screen($desktop)
+    padding: 0.75rem 0 2.5rem 0

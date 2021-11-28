@@ -1,0 +1,9 @@
+<section class="contact-cta">
+  <div class="container">
+    <p class="h1 mb0">{{ footer:main_text }}</p>
+    {{ if footer:sub_text }}
+      <p class="h3 mt0">{{ footer:sub_text | widont }}</p>
+    {{ /if }}
+    <a href="{{ relate:footer:link }}{{ url }}{{ /relate:footer:link }}" class="button inverted">{{ footer:button_text }}</a>
+  </div>
+</section>

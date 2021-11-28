@@ -1,0 +1,13 @@
+
+<div class="location">
+  <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ locale_name }}</span>
+  <div class="other-locations">
+    <ul>
+      {{ locales }}
+        {{ unless locale.key == current }}
+          <li><a href="{{ locale:url }}"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ locale:name }}</a></li>
+        {{ /unless}}
+      {{ /locales }}
+    </ul>
+  </div>
+</div>

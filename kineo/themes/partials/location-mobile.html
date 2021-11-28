@@ -1,0 +1,18 @@
+
+
+<li class="has-children locations-mobile">
+  <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ locale_name }} <i class="fas fa-caret-down"></i></span>
+  <div class="sub-nav">
+    <div class="inner">
+      <div class="links">
+        <ul>
+          {{ locales }}
+            {{ unless locale.key == current }}
+              <li><a href="{{ locale:url }}"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> {{ locale:name }}</a></li>
+            {{ /unless}}
+          {{ /locales }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</li>

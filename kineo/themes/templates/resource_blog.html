@@ -1,0 +1,71 @@
+
+{{ partial:resources-banner }}
+
+<section>
+
+  <div class="container grid cols-3-6-3">
+
+    <div class="col no-mobile">
+      {{ if author }}
+        <div class="author-snapshot">
+          {{ author }}
+            {{ asset:profile_picture }}
+              <img src="{{ url }}" alt="{{ alt }}">
+            {{ /asset:profile_picture }}
+            <p class="h4 mb0">{{ title }}</p>
+            {{ if title == "Kineo" }}
+              <p class="smallfont mt0">{{ position }}</p>
+            {{ elseif title == "Compliance elearning" }}
+              <p class="smallfont mt0">{{ position }}</p>
+            {{ else }}
+              <p class="smallfont mt0">{{ position }} at {{ region }}</p>
+            {{ /if }}
+          {{ /author }}
+        </div>
+      {{ /if }}
+    </div>
+
+    <div class="col">
+      {{ full_bard_1 }}
+        {{ partial:bards/full_bard_1 }}
+      {{ /full_bard_1 }}
+
+      {{ if author }}
+        <div class="author-bio">
+          {{ author }}
+            <div class="flex">
+              {{ asset:profile_picture }}
+                <img src="{{ url }}" alt="{{ alt }}">
+              {{ /asset:profile_picture }}
+              <div class="name-position">
+                <p class="h4 mb0">{{ title }}</p>
+                {{ if title == "Kineo" }}
+                  <p class="smallfont mt0">{{ position }}</p>
+                {{ elseif title == "Compliance elearning" }}
+                  <p class="smallfont mt0">{{ position }}</p>
+                {{ else }}
+                  <p class="smallfont mt0">{{ position }} at {{ region }}</p>
+                {{ /if }}
+              </div>
+            </div>
+            <hr>
+            <p>{{ biography }}</p>
+          {{ /author }}
+        </div>
+      {{ /if }}
+
+      {{ partial:components/related_tags }}
+
+    </div>
+
+  </div>
+
+  {{ partial:components/share_links }}
+
+</section>
+
+{{ partial:components/related_posts }}
+
+{{ if hide_contact_form != "true" }}
+  {{ partial:footer-form-container }}
+{{ /if }}

@@ -1,0 +1,71 @@
+// Container width________________________
+.container
+  // or use padding? was set up that way originally for some reason
+  max-width: $container
+  margin: $space2 auto
+  padding-left: $space1
+  padding-right: $space1
+
+  &.mt-small, &.mt-medium
+    margin-top: 0.75rem
+
+  &.mb-small, &.mb-medium
+    margin-bottom: 0.75rem
+
+  @include screen($tablet)
+    margin: $space3 auto
+    padding-left: $space2
+    padding-right: $space2
+
+    &.mt-small
+      margin-top: 0.75rem
+    &.mt-medium
+      margin-top: $space2
+
+    &.mb-small
+      margin-bottom: 0.75rem
+    &.mb-medium
+      margin-bottom: $space2
+
+  @include screen($desktop)
+    padding-left: $space3
+    padding-right: $space3
+
+// options to remove or change the top and bottom margin of the container
+.container.no-v-margin
+  margin: 0 auto
+
+.container.small-v-margin
+  margin: $space2 auto
+
+.container.med-v-margin
+  margin: $space2 auto
+  @include screen($tablet)
+    margin: 4.5rem auto
+
+
+  // for carousels
+.container
+  &.for-carousel
+    padding-left: 1rem
+    padding-right: 1rem
+    padding-top: 0
+    padding-bottom: 0
+    margin-bottom: $space2
+    margin-top: $space1
+    position: relative
+
+    @include screen($tablet)
+      // max-width: calc(1280px - 0.5rem)
+      // max-width: 100%
+      max-width: $container
+      padding-left: $space2
+      padding-right: $space2
+      padding-top: 0
+      padding-bottom: 0
+      margin-bottom: $space3
+      margin-top: $space1
+
+    @include screen($desktop)
+      padding-left: $space3
+      padding-right: $space3

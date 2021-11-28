@@ -1,0 +1,40 @@
+
+{{ partial:resources-banner }}
+
+<section>
+
+  <div class="container grid cols-8-4 wrap-reverse">
+
+    <div class="col release-notes">
+      <div class="welcome-panel">
+        {{ welcome_panel }}
+      </div>
+      {{ deep_dive_content.full_bard_1 }}
+        {{ partial:bards/full_bard_1 }}
+      {{ /deep_dive_content.full_bard_1 }}
+    </div>
+
+    <div class="col sticky-wrapper">
+      <div class="sticky">
+        <h3>{{ anchors_heading }}</h3>
+        <ul>
+          {{ anchor_links }}
+          <li><a href="#">{{ anchor_link }}</a></li>
+          {{ /anchor_links }}
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <span id="stop-marker"></span>
+
+  {{ partial:components/share_links }}
+
+</section>
+
+{{ partial:components/related_posts }}
+
+{{ if hide_contact_form != "true" }}
+  {{ partial:footer-form-container }}
+{{ /if }}

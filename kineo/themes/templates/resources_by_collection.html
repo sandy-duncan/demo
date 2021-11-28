@@ -1,0 +1,46 @@
+<div class="page-banner" {{ get_content from="1745904e-a91c-4ae4-a8ba-776d130484b5" }}{{ assets:page_banner_image }} style="background-image: url('{{ glide:url }}'); background-position: {{ focus_css }}" {{ /assets:page_banner_image }}{{ /get_content }}>
+  <div class="container">
+    <ul class="breadcrumbs smallcaps bold white mt0">
+      {{ nav:breadcrumbs }}
+        {{ if ! is_current }}
+          <li>
+            <a href="{{ url }}">{{ title }}</a>
+          </li>
+        {{ /if }}
+      {{ /nav:breadcrumbs }}
+      <li> {{ title }}</li>
+    </ul>
+    <h1 class="white mt0">{{ page_banner_text or title }}</h1>
+  </div>
+</div>
+
+<section>
+
+  <div class="container">
+
+    <div class="grid small-gap resources-layout">
+      {{ entries hide:is="false" paginate="true" limit="9" as="previews" show_future="true" }}
+        {{ previews }}
+          <div class="col">
+            {{ partial:components/resource_preview }}
+          </div>
+        {{ /previews }}
+
+        <div class="pagination-controls">
+          {{ paginate }}
+            {{ auto_links }}
+          {{ /paginate }}
+        </div>
+      {{ /entries }}
+    </div>
+
+  </div>
+
+</section>
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

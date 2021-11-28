@@ -1,0 +1,61 @@
+{{ partial:page-banner }}
+
+<section>
+  <div class="container results">
+
+    <div class="re-search">
+      <form action="{{ get_content from="250c1f3b-839c-46ad-8337-fbe32f1c3342" }}{{ url }}{{ /get_content }}" method="GET" class="flex">
+        <input type="text" name="q" placeholder="search..." />
+        <input type="submit" value="search">
+      </form>
+    </div>
+
+    <h3>Search results for '{{ get:q }}'</h3>
+    <hr>
+
+    {{ search:results dont_search:isnt_set="true" paginate="true" limit="10" as="results" }}
+      {{ if no_results }}
+        <h3>We coudn't find any results.</h3>
+      {{ else }}
+
+        {{ results }}
+
+          <div class="result">
+            <h3><a href="{{ url }}">{{ title }}</a></h3>
+            {{ if collection !== "case_studies" }}
+              <p class="smallcaps bold">{{ pretty_name ensure_right=" — " }}{{ date format="d.m.Y" }}</p>
+            {{ /if }}
+            {{ if collection == "case_studies" }}
+              <p class="smallcaps bold">Case studies</p>
+            {{ /if }}
+            {{ if teaser_text }}
+              <p>{{ teaser_text }}</p>
+            {{ elseif snippet }}
+              <p>{{ snippet }}</p>
+            {{ else }}
+              {{ seo }}
+                <p>{{ description}}</p>
+              {{ /seo }}
+            {{ /if }}
+          </div>
+
+        {{ /results }}
+
+      {{ /if }}
+
+      <div class="pagination-controls">
+        {{ paginate }}
+          {{ auto_links }}
+        {{ /paginate }}
+      </div>
+    {{ /search:results }}
+
+  </div>
+</section>
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

@@ -1,0 +1,17 @@
+<a class="resource-preview" href="{{ url }}">
+  <div class="preview-inner" style="background-color:{{ colour.value }};{{ if colour.label == 'grey' }}color:black;{{ /if }}">
+    <p class="smallcaps bold">{{ pretty_name or collection }}</p>
+    <hr {{ if colour.label == 'grey' }}style="background-color:black;"{{ /if }}>
+    <h3>{{ title }}</h3>
+    <p>{{ snippet | safe_truncate:180:... }}</p>
+    <span class="read-more smallcaps bold">READ MORE</span>
+    <div class="date-box smallcaps bold" {{ if colour.label == 'grey' }}style="color:white;"{{ /if }}>
+      <span class="day">{{ date format="d" }}</span><br>
+      <span>{{ date format="M" }}</span>
+      <span>{{ date format="Y" }}</span>
+    </div>
+    <div class="tags">
+      {{ solution }}<span>{{ title }}</span>{{ /solution }}
+    </div>
+  </div>
+</a>

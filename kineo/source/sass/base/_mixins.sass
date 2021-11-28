@@ -1,0 +1,44 @@
+/* MEDIA QUERIES */
+
+// Passing content block into mixin for breakpoints
+
+@mixin screen($set-width)
+  @media screen and (min-width:$set-width)
+    @content
+
+// Example usage
+
+//   @include screen($tablet)
+//     font-size: 2rem
+
+@mixin col($number)
+  grid-column: span $number
+
+// Example
+//   @include col(3)
+//     grid-column: span 3
+
+@mixin contain
+  max-width: $container
+  margin: 0 auto
+  @include screen($tablet)
+    padding-left: $space2
+    padding-right: $space2
+  @include screen($desktop)
+    padding-left: $space3
+    padding-right: $space3
+
+
+/* CENTERING */
+@mixin centered
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+// Example usage
+// .parent
+//   position: relative
+//
+// .child
+//   @include centered

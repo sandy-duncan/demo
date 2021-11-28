@@ -1,0 +1,120 @@
+h1, .h1
+  margin: 1.5rem 0
+  font-size: 2rem
+  font-weight: 500
+  @include screen($tablet)
+    font-size: 2.75rem
+
+h2, .h2
+  text-transform: none
+  font-weight: 700
+  font-family: 'Volkhov', serif
+  font-size: 1.7rem
+  margin: 1rem 0
+  @include screen($tablet)
+    margin: 1rem 0
+    font-size: 1.85rem
+
+h3, .h3
+  text-transform: none
+  font-weight: normal
+  font-size: 1.3rem
+  margin: 1rem 0
+  @include screen($tablet)
+    font-size: 1.5rem
+    margin: 1rem 0
+
+h4, .h4
+  text-transform: none
+  font-weight: normal
+  font-size: 1.2rem
+  margin: 1rem 0
+// fix this
+h5, .h5
+  font-size: 1.2rem
+  margin: 1rem 0
+  font-weight: 600
+
+p
+  // font-weight: 600
+  line-height: 1.6
+  // font-size: 1.1rem
+
+p.pre-heading
+  font-weight: bold
+  font-size: 0.9rem
+  letter-spacing: 2px
+  text-transform: uppercase
+  margin: 1rem 0
+  &:after
+    content: ""
+    height: 2px!important
+    width: 50px
+    background: #00b140!important
+    margin: 1rem 0
+    display: block
+    padding: 0!important
+
+// if centered
+.ta-c p.pre-heading:after
+  margin: 1rem auto
+
+.white p.pre-heading::after, p.pre-heading.white::after
+  background: white!important
+
+.white-cards p.pre-heading::after
+  background: #00b140!important
+
+.smallcaps
+  font-size: 0.9rem
+  letter-spacing: 1px
+  text-transform: uppercase
+
+.bold
+  font-weight: bold
+
+.extra-bold
+  font-weight: 800
+
+.smallfont
+  font-size: 0.9rem
+
+.hero-font
+  font-size: 2rem
+  @include screen($tablet)
+    font-size: 3rem
+
+main section
+  ul
+    padding: 0 0 0 1rem
+    list-style: none
+    font-size: 1rem
+    li
+      margin-bottom: 0.5rem
+    li::before
+      content: "\2022"
+      color: $emerald
+      font-weight: bold
+      display: inline-block
+      width: 1rem
+      margin-left: -1rem
+
+  ol
+    padding: 0 0 0 1rem
+    font-size: 1rem
+
+  blockquote
+    margin-left: 0
+    border-left: 2px solid $emerald
+    padding-left: 1.5rem
+    font-size: 1.1rem
+    font-style: italic
+    @include screen($tablet)
+      font-size: 1.3rem
+
+
+hr
+  border: 0
+  height: 1px
+  background: $med-grey
+  margin: 1rem 0

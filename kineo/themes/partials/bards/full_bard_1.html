@@ -1,0 +1,76 @@
+
+
+{{ if type == "text" }}
+
+  {{ text }}
+
+{{ elseif type == "pre_heading_set" }}
+
+  <p class="pre-heading">{{ pre_heading }}</p>
+
+{{ elseif type == "button_set" }}
+
+  {{ partial:components/button }}
+
+{{ elseif type == "image_set" }}
+
+  <div class="single-column-image" style="text-align:{{ image_alignment }}">
+    <picture {{ if image_width }}class="{{ image_width }}"{{ /if }}>
+      {{ assets:image }}
+        <source media="(max-width: 599px)" srcset="{{ glide:url width="450" format="webp" }}" type="image/webp">
+        <source media="(max-width: 599px)" srcset="{{ glide:url width="450" }}">
+
+        <source srcset="{{ glide:url format="webp" }}" type="image/webp">
+
+        <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy">
+      {{ /assets:image }}
+    </picture>
+  </div>
+
+{{ elseif type == "video_set" }}
+
+  <div class="single-column-image" {{ if video_alignment }} style="text-align:{{ video_alignment }}" {{ /if }}>
+    <div class="video-link {{ video_width }}">
+      <picture>
+        {{ assets:video_placeholder }}
+          <source media="(max-width: 599px)" srcset="{{ glide:url width="450" format="webp" }}" type="image/webp">
+          <source media="(max-width: 599px)" srcset="{{ glide:url width="450" }}">
+
+          <source srcset="{{ glide:url format="webp" }}" type="image/webp">
+
+          <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy">
+        {{ /assets:video_placeholder }}
+      </picture>
+
+      <div class="play-button">
+        <i class="far fa-play-circle"></i>
+      </div>
+    </div>
+  </div>
+
+  {{ partial:components/video_overlay }}
+
+{{ elseif type == "inline_images_set" }}
+
+  <div class="inline-images">
+    {{ assets:inline_image }}
+      <div>
+        <img src="{{ url }}" alt="{{ alt }}" loading="lazy">
+      </div>
+    {{ /assets:inline_image }}
+  </div>
+
+{{ elseif type == "alternate_link" }}
+
+  {{ partial:components/alternate_link }}
+
+{{ elseif type == "cta" }}
+
+  <p class="h1 mb0">{{ cta_text }}</p>
+  <p class="h3 mt0">{{ cta_sub_text | widont }}</p>
+
+{{ elseif type == "anchor_point_set" }}
+
+  <span id="{{ anchor_point }}"></span>
+
+{{ /if }}

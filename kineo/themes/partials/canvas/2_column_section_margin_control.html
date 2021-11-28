@@ -1,0 +1,63 @@
+{{ if background_image }}
+
+  <style media="screen">
+      .no-webp .element-{{ index }} {
+        background-image: url('{{ glide:background_image width='450' }}');
+      }
+      .webp .element-{{ index }} {
+        background-image: url('{{ glide:background_image width='450' format='webp' }}');
+      }
+      @media screen and (min-width: 750px) {
+        .no-webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1025' }}');
+        }
+        .webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1025' format='webp' }}');
+        }
+      }
+      @media screen and (min-width: 1025px) {
+        .no-webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1400' }}');
+        }
+        .webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='1400' format='webp' }}');
+        }
+      }
+      @media screen and (min-width: 1400px) {
+        .no-webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='2000' }}');
+        }
+        .webp .element-{{ index }} {
+          background-image: url('{{ glide:background_image width='2000' format='webp' }}');
+        }
+      }
+  </style>
+
+{{ /if }}
+
+<section class="{{ if background_image }}element-{{ index }} {{ /if }}{{ background_colour.label }}{{ if white_text }} white{{ /if }}{{ if border_bottom }} border-bottom{{ /if }}" {{ if background_image }}{{ assets:background_image }}style="background-position:{{ focus_css }};"{{ /assets:background_image }}{{ /if }}>
+
+  <div class="container {{ margin_top }} {{ margin_bottom }}">
+
+    <div>
+      {{ content_above_columns.basic_bard }}
+        {{ partial:bards/basic_bard }}
+      {{ /content_above_columns.basic_bard }}
+    </div>
+
+    <div class="grid {{ if split }}{{ split }}{{ else }}cols-6-6{{ /if }} {{ if reverse_it }}wrap-reverse{{ /if }}">
+      <div class="col">
+        {{ left_column.full_bard_2 }}
+          {{ partial:bards/full_bard_2 }}
+        {{ /left_column.full_bard_2 }}
+      </div>
+      <div class="col">
+        {{ right_column.full_bard_2 }}
+          {{ partial:bards/full_bard_2 }}
+        {{ /right_column.full_bard_2 }}
+      </div>
+    </div>
+
+  </div>
+
+</section>

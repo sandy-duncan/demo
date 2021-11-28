@@ -1,0 +1,54 @@
+
+
+<section class="{{ background_colour.label }}">
+
+  <div class="container mb0">
+    {{ content_above_tabs.basic_bard }}
+      {{ partial:bards/basic_bard }}
+    {{ /content_above_tabs.basic_bard }}
+  </div>
+
+  <div class="tabs-navigation">
+    {{ tab_item }}
+      <span class="tab smallcaps bold {{ if dark_theme }}dark-theme{{ /if }}" data-id="-{{ index }}">{{ tab_label }}</span>
+    {{ /tab_item }}
+  </div>
+
+  <section class="panels-background {{ if dark_theme }}dark-theme{{ /if }}">
+
+    <div class="panels-container">
+      {{ tab_item }}
+
+        <div class="mobile-tab smallcaps bold">
+          {{ tab_label }}
+          <i class="fas fa-chevron-down tab-toggle"></i>
+        </div>
+
+        <div class="panel" id="panel-{{ index }}">
+          <div class="grid {{ if split }}{{ split }}{{ else }}cols-6-6{{ /if }}">
+
+            <div class="col">
+              {{ tab_left_content.basic_bard }}
+                {{ partial:bards/basic_bard }}
+              {{ /tab_left_content.basic_bard }}
+            </div>
+
+            <div class="col">
+              {{ tab_right_content.full_bard_2 }}
+                {{ partial:bards/full_bard_2 }}
+              {{ /tab_right_content.full_bard_2 }}
+            </div>
+
+          </div>
+        </div>
+
+      {{ /tab_item }}
+    </div>
+
+  </section>
+
+
+
+
+
+</section><!-- close solutions section -->

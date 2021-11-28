@@ -1,0 +1,16 @@
+<div id="set-location">
+  <span style="color:white;">Please select your location &nbsp;<i class="fas fa-globe" aria-hidden="true"></i></span>
+
+    {{ locales }}
+      {{ if locale:full === "en_AU" }}
+        <a href="{{ locale:url }}{{ current_uri | remove_left:/ }}" data-location="{{ locale:cookie }}">{{ locale:name }}</a>
+      {{ elseif locale:full === "en_US" }}
+        <a href="{{ locale:url }}{{ current_uri | remove_left:/ }}" data-location="{{ locale:cookie }}"> {{ locale:name }}</a>
+      {{ elseif locale:full === "es_ES" }}
+        <a href="{{ locale:url }}" data-location="{{ locale:cookie }}"> {{ locale:name }}</a>
+      {{ else }}
+        <a href="{{ locale:url }}{{ current_uri }}" data-location="{{ locale:cookie }}"> {{ locale:name }}</a>
+      {{ /if }}
+    {{ /locales }}
+
+</div>

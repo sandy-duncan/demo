@@ -1,0 +1,32 @@
+.release-notes
+
+.welcome-panel
+  background-color: $light-grey
+  padding: $space1
+  margin-bottom: $space3
+
+.sticky-wrapper
+  width: 100%
+  position: relative
+
+.sticky
+  background-color: $light-grey
+  padding: $space1
+  overflow-y: auto
+  width: 100%
+  a
+    font-size: 90%
+  ul
+    padding: 0
+    li
+      margin: 1rem 0
+      &::before
+        content: ''
+
+  &.stuck
+    position: fixed
+
+  &.stuck-at-bottom
+    position: absolute
+    bottom: 0
+    top: auto!important

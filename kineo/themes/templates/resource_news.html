@@ -1,0 +1,25 @@
+
+{{ partial:resources-banner }}
+
+<section>
+
+  <div class="container">
+
+    <div class="half-width-container">
+      {{ full_bard_1 }}
+        {{ partial:bards/full_bard_1 }}
+      {{ /full_bard_1 }}
+      {{ partial:components/related_tags }}
+    </div>
+
+  </div>
+
+  {{ partial:components/share_links }}
+
+</section>
+
+{{ partial:components/related_posts }}
+
+{{ if hide_contact_form != "true" }}
+  {{ partial:footer-form-container }}
+{{ /if }}

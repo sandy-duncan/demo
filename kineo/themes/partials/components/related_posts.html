@@ -1,0 +1,26 @@
+{{ if related }}
+  <section class="bg-grey">
+    <div class="container">
+      <h3>Related resources</h3>
+      <div class="grid small-gap resources-layout">
+        {{ relate:related limit="3" }}
+          <div class="col">
+            <a class="resource-preview" href="{{ url }}">
+              <div class="preview-inner" style="background-color:{{ colour.value }}">
+                <p class="smallcaps bold">{{ pretty_name or collection }}</p>
+                <h3>{{ title }}</h3>
+                <p>{{ snippet | safe_truncate:300:... }}</p>
+                <span class="read-more smallcaps bold">READ MORE</span>
+                <div class="date-box smallcaps bold">
+                  <span class="day">{{ date format="d" }}</span><br>
+                  <span>{{ date format="M" }}</span>
+                  <span>{{ date format="Y" }}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        {{ /relate:related }}
+      </div>
+    </div>
+  </section>
+{{ /if }}

@@ -1,0 +1,199 @@
+// Grid settings__________________________
+
+// Autoprefixer won't work if I write grid-column: span x
+// I would need to write grid-column-start and grid-column-end
+
+// -ms-grid-column-span: x = the width of the column
+// -ms-grid-column: x = where it begins
+
+
+// Reverse stacking order for mobile
+.wrap-reverse
+  display: flex
+  flex-wrap: wrap-reverse
+  @include screen($tablet)
+    display: grid
+
+  .col
+    // only effect cols in wrap-reverse on mobile
+    margin: 0
+    &:first-child
+      margin-top: 1.5rem
+      @include screen($tablet)
+        margin-top: 0
+
+
+// THE GRID_______________________
+.grid
+  @include screen($tablet)
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-gap: $space2
+    &.small-gap
+      grid-gap: $space1
+    &.no-gap
+      grid-gap: 0px
+
+    @include screen($desktop)
+      grid-gap: 4.5rem
+    @include screen($large)
+      grid-gap: 6rem
+
+// the column
+.col
+  margin: $space1 0
+  *:first-child
+    margin-top: 0
+  *:last-child
+    margin-bottom: 0
+  @include screen($tablet)
+    margin: 0
+
+
+// Grid layouts to be used in addition to the grid class
+.cols-4-8
+  .col
+    @include screen($tablet)
+      &:nth-of-type(odd)
+        grid-column: span 4
+      &:nth-of-type(even)
+        grid-column: span 8
+
+.cols-6-6
+  .col
+    @include screen($tablet)
+      grid-column: span 6
+      -ms-grid-column-span: 6
+      -ms-grid-column: 5
+
+.cols-8-4
+  .col
+    @include screen($tablet)
+      &:nth-of-type(odd)
+        grid-column: span 8
+      &:nth-of-type(even)
+        grid-column: span 4
+
+.cols-4-4-4
+  .col
+    @include screen($tablet)
+      grid-column: span 6
+    @include screen($desktop)
+      grid-column: span 4
+
+.cols-3-3-3-3
+  .col
+    @include screen($tablet)
+      grid-column: span 6
+    @include screen($desktop)
+      grid-column: span 3
+
+.cols-3-6-3
+  .col
+    @include screen($tablet)
+      &:nth-child(3n+1)
+        grid-column: span 3
+      &:nth-child(3n+2)
+        grid-column: span 6
+      &:nth-child(3n+3)
+        grid-column: span 3
+
+.cols-12
+  .col
+    @include screen($tablet)
+      grid-column: span 12
+
+
+// for internet explorer______________________
+.no-cssgrid
+  .grid, .footer-grid
+    display: flex
+    flex-wrap: wrap
+    .col
+      padding: 3em
+
+  .cols-4-8
+    .col
+      @include screen($tablet)
+        &:nth-of-type(odd)
+          width: 33.33%
+          padding-left: 0
+        &:nth-of-type(even)
+          width: 66.66%
+          padding-right: 0
+
+  .cols-6-6
+    .col
+      @include screen($tablet)
+        width: 50%
+        &:nth-of-type(odd)
+          padding-left: 0
+        &:nth-of-type(even)
+          padding-right: 0
+
+  .cols-8-4
+    .col
+      @include screen($tablet)
+        &:nth-of-type(odd)
+          width: 66.66%
+          padding-left: 0
+        &:nth-of-type(even)
+          width: 33.33%
+          padding-right: 0
+
+  .cols-4-4-4
+    .col
+      @include screen($tablet)
+        width: 50%
+      @include screen($desktop)
+        width: 33.33%
+        &:nth-of-type(3n+1)
+          padding-left: 0
+        &:nth-of-type(3n+3)
+          padding-right: 0
+
+  .cols-3-3-3-3
+    .col
+      @include screen($tablet)
+        width: 50%
+      @include screen($desktop)
+        width: 25%
+        &:nth-of-type(4n+1)
+          padding-left: 0
+        &:nth-of-type(4n+4)
+          padding-right: 0
+
+  .cols-3-6-3
+    .col
+      @include screen($tablet)
+        &:nth-child(3n+1)
+          width: 25%
+        &:nth-child(3n+2)
+          width: 50%
+        &:nth-child(3n+3)
+          width: 25%
+
+  // other layouts--
+  .resources-layout
+    .col
+      padding: 1rem
+      height: 550px
+      @include screen($tablet)
+        width: 50%
+      @include screen($desktop)
+        width: 33.33%
+
+  .footer-grid
+    .footer-col
+      width: 50%
+      @include screen($tablet)
+        width: 25%
+
+  .case-studies-layout
+    .col
+      padding: 1rem
+      height: 550px
+      @include screen($tablet)
+        width: 50%
+      @include screen($desktop)
+        width: 25%

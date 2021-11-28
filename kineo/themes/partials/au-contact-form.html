@@ -1,0 +1,83 @@
+
+<form id="au-contact-form" action="{{ contact_form:embed_code }}" method="post">
+
+  <div class="inputs">
+
+    <div class="input-half">
+      <input type="text" name="firstName" aria-label="First name" placeholder="First name*" required>
+    </div>
+
+    <div class="input-half">
+      <input type="text" name="lastName" aria-label="Last name" placeholder="Last name*" required>
+    </div>
+
+    <div class="input-half">
+      <input type="email" name="email" aria-label="email" placeholder="Email*" required>
+    </div>
+
+    <div class="input-half">
+      <input type="text" name="phone" aria-label="phone number" placeholder="Phone*" required>
+    </div>
+
+    <div class="input-full">
+      <input type="text" name="organisation" aria-label="company" placeholder="Company*" required>
+    </div>
+
+    <div class="input-half">
+      <select id="country-select" name="country" aria-label="country" required>
+        <option value="" disabled selected>Country*</option>
+        <option value="au">Australia</option>
+        <option value="nz">New Zealand</option>
+      </select>
+    </div>
+
+    <div class="input-half au-states active">
+      <select id="au-states" name="state" aria-label="state" required>
+        <option value="" disabled selected>State*</option>
+        <option value="Australian Capital Territory">Australian Capital Territory</option>
+        <option value="New South Wales">New South Wales</option>
+        <option value="Northern Territory">Northern Territory</option>
+        <option value="Queensland">Queensland</option>
+        <option value="South Australia">South Australia</option>
+        <option value="Tasmania">Tasmania</option>
+        <option value="Victoria">Victoria</option>
+        <option value="Western Australia">Western Australia</option>
+      </select>
+    </div>
+
+    <div class="input-half nz-states">
+      <select id="nz-states" name="state" aria-label="region">
+        <option value="" disabled selected>Region</option>
+        <option value="Auckland">Auckland</option>
+        <option value="Bay of Plenty">Bay of Plenty</option>
+        <option value="Canterbury">Canterbury</option>
+        <option value="Gisborne">Gisborne</option>
+        <option value="Hawke's Bay">Hawke's Bay</option>
+        <option value="Manawatu-Wanganui">Manawatu-Wanganui</option>
+        <option value="Marlborough">Marlborough</option>
+        <option value="Nelson">Nelson</option>
+        <option value="Northland">Northland</option>
+        <option value="Otago">Otago</option>
+        <option value="Southland">Southland</option>
+        <option value="Taranaki">Taranaki</option>
+        <option value="Tasman">Tasman</option>
+        <option value="Waikato">Waikato</option>
+        <option value="Wellington">Wellington</option>
+        <option value="West Coast">West Coast</option>
+      </select>
+    </div>
+
+    <div class="input-full">
+      <textarea class="full-width" name="message" rows="8" placeholder="Message*" aria-label="message" required></textarea>
+    </div>
+
+    <div class="input-full">
+      <input type="checkbox" id="newsletter" name="subscribe" value="">
+      <label class="newsletter-label" for="newsletter">Join over 8000 HR, L&D and WH&S senior leaders for the latest learning insights</label>
+    </div>
+
+  </div>
+
+  <input type="submit" value="submit">
+
+</form>

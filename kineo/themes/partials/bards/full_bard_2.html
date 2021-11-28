@@ -1,0 +1,73 @@
+
+
+{{ if type == "text" }}
+
+  {{ text }}
+
+{{ elseif type == "pre_heading_set" }}
+
+  <p class="pre-heading">{{ pre_heading }}</p>
+
+{{ elseif type == "button_set" }}
+
+  {{ partial:components/button }}
+
+{{ elseif type == "image_set" }}
+
+  <picture>
+    {{ assets:image }}
+      <source media="(max-width: 599px)" srcset="{{ glide:url width="450" format="webp" }}" type="image/webp">
+      <source media="(max-width: 599px)" srcset="{{ glide:url width="450" }}">
+
+      <source srcset="{{ glide:url format="webp" }}" type="image/webp">
+
+      <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy">
+    {{ /assets:image }}
+  </picture>
+
+{{ elseif type == "video_set" }}
+
+  <div class="video-link {{ video_width }}">
+    <picture>
+      {{ assets:video_placeholder }}
+        <source media="(max-width: 599px)" srcset="{{ glide:url width="450" format="webp" }}" type="image/webp">
+        <source media="(max-width: 599px)" srcset="{{ glide:url width="450" }}">
+
+        <source srcset="{{ glide:url format="webp" }}" type="image/webp">
+
+        <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy">
+      {{ /assets:video_placeholder }}
+    </picture>
+
+    <div class="play-button">
+      <i class="far fa-play-circle"></i>
+    </div>
+  </div>
+
+  {{ partial:components/video_overlay }}
+
+{{ elseif type == "inline_images_set" }}
+
+  <div class="inline-images">
+    {{ assets:inline_image }}
+      <div>
+        <img src="{{ url }}" alt="{{ alt }}" loading="lazy">
+      </div>
+    {{ /assets:inline_image }}
+  </div>
+
+{{ elseif type == "svg_set" }}
+
+  {{ assets:svg }}
+    <iframe src="{{ url }}" width="100%" height="{{ svg_height }}" style="border:none;"></iframe>
+  {{ /assets:svg }}
+
+{{ elseif type == "alternate_link" }}
+
+  {{ partial:components/alternate_link }}
+
+{{ elseif type == "anchor_point_set" }}
+
+  <span id="{{ anchor_point }}"></span>
+
+{{ /if }}

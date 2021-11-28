@@ -1,0 +1,264 @@
+// Resources / insights parent and collection pages
+.resources-banner
+  overflow: auto
+  position: relative
+  // background-color: $emerald
+  color: $white
+  @include screen($large)
+    // padding: 3rem 0
+
+  .bread-and-title
+    @include screen($tablet)
+      margin-left: $space1
+
+
+  .banner-date
+    display: none
+    @include screen($tablet)
+      background-color: $black
+      text-transform: uppercase
+      text-align: center
+      padding: 12px
+      letter-spacing: normal
+      display: inline-block
+      height: fit-content
+      .day
+        font-size: 1.75rem
+        font-weight: normal
+
+  .mobile-date
+    @include screen($tablet)
+      display: none
+
+.filters
+  margin: $space1 0
+  a
+    background-color: $dark-grey
+    color: $white
+    font-size: 0.8rem
+    padding: 5px 12px
+    border-radius: 20px
+    transition: color 0.2s ease
+    margin: 0 10px 10px 0
+    white-space: nowrap
+    display: inline-block
+    opacity: 0.75
+    &.active
+      opacity: 1
+      background-color: $emerald
+    &:hover
+      opacity: 1
+      background-color: $emerald
+      text-decoration: none
+
+#clear-filters
+  opacity: 1
+  background-color: $emerald
+  &.inactive
+    background-color: $dark-grey
+    opacity: 0.75
+  &:hover
+    opacity: 1
+    background-color: $emerald
+    text-decoration: none
+
+  // display: none
+
+// RESOURCES PARENT PAGE_______________
+.resources-layout
+  // Uses grid small-gap
+  .col
+    height: 500px
+    @include screen($tablet)
+      grid-column: span 6
+    @include screen($desktop)
+      grid-column: span 4
+
+// Resource preview panels
+.resource-preview
+  height: 100%
+  display: block
+
+  &:hover
+    text-decoration: none
+
+  .preview-inner
+    height: 100%
+    padding: $space1
+    background-size: cover
+    color: $white
+    position: relative
+    transition: box-shadow 0.2s ease, transform 0.2s ease
+    transform: translateY(3px)
+    //if no colour is chosen in cms
+    background-color: $emerald
+    a
+      height: auto
+    &:hover
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.6)
+      transform: translateY(0)
+      span.read-more
+        transform: translateY(0)
+        opacity: 1
+
+    .date-box
+      position: absolute
+      background-color: $black
+      text-transform: uppercase
+      text-align: center
+      padding: 12px
+      letter-spacing: normal
+      bottom: 1.5rem
+      left: 1.5rem
+      .day
+        font-size: 1.75rem
+        font-weight: normal
+
+    span.read-more
+      position: absolute
+      right: $space1
+      bottom: $space1
+      transform: translateY(30px)
+      opacity: 0
+      transition: transform 0.2s ease
+
+    hr
+      background: white
+
+    .tags
+      span
+        background-color: $white
+        color: $black
+        font-size: 0.8rem
+        padding: 5px 12px
+        border-radius: 20px
+        margin: 0 10px 10px 0
+        white-space: nowrap
+        display: inline-block
+
+// different one for newsletter subscribe
+.newsletter-subscribe
+  height: 100%
+  background-color: $black
+  padding: 1.5rem
+  color: $white
+  transform: translateY(3px)
+
+// RESOURCES VERSION 2
+.go-to-content-link
+  text-align: center
+  a
+    margin: 2rem 0 1rem 0
+
+
+// COLLECTION ENTRY PAGES___________________
+// shared things
+.share-links
+  text-align: right
+  margin: $space1 0
+  a
+    color: $black
+    transition: color 0.2s ease
+    &:hover
+      color: $emerald
+  i
+    margin-left: 0.5rem
+
+// Blog template_______________
+.author-snapshot
+  background: $black
+  color: $white
+  padding: $space1
+  @include screen($desktop)
+    margin-right: 3rem
+    img
+      max-width: 80px
+      min-width: 50%
+
+.author-bio
+  background: $light-grey
+  padding: 1.5rem
+  margin-top: 3rem
+  img
+    width: 100px
+    height: 100px
+  .name-position
+    padding-left: $space1
+
+.blogs-container
+  max-width: 800px
+  margin: auto
+
+// news template______________
+.half-width-container
+  @include screen($tablet)
+    max-width: 50%
+    margin: auto
+
+// reports and guides template - same form for webinars______
+// inherits some styles from contact.sass
+
+.download-resource-wrapper
+  background-color: $dark-grey
+  color: $white
+  padding: $space1
+  img
+    padding: 0 $space1
+
+// podcasts template_____________
+.speakers-accordion
+  background-color: $light-grey
+  padding: $space1
+
+  .speakers-panel
+    &:not(:last-of-type)
+      border-bottom: 1px solid $med-grey
+
+    .more-info
+      display: none
+      margin: 1rem 0
+      img
+        width: 80px
+        height: 80px
+      .bio
+        margin-left: $space1
+
+    .speakers-tab
+      margin: $space1 0
+      position: relative
+      cursor: pointer
+      &.active .plus-icon
+        transform: rotate(45deg)
+      .plus-icon
+        position: absolute
+        top: -8px
+        right: 0
+        transition: transform 0.2s ease
+        font-size: 2rem
+
+.use-read-more
+  margin: 1rem 0
+  height: 300px
+  overflow: hidden
+  position: relative
+  &.open
+    height: auto
+
+  .read-more-link
+    color: $emerald
+    cursor: pointer
+    bottom: 0
+    left: 0
+    right: 0
+    position: absolute
+    padding-top: 5rem
+    background: linear-gradient(to top, white 40%, transparent 110%)
+    &:hover
+      text-decoration: underline
+
+// events template_____________
+.event-map
+  iframe
+    margin: $space1 0
+    width: 100%!important
+    max-width: 100%

@@ -1,0 +1,120 @@
+#home-page
+
+  // CAUTION - WTF GOING ON HERE
+  // .flickity-viewport
+  //   height: 100%!important
+
+// HERO__________________________________________
+.hero
+  background: $turquoise
+  overflow: hidden
+  color: $white
+  position: relative
+  &.emerald-to-cyan
+    background: -webkit-linear-gradient(45deg, rgba(0,177,64,1) 35%, rgba(0,191,179,1) 100%)
+    background: -o-linear-gradient(45deg, rgba(0,177,64,1) 35%, rgba(0,191,179,1) 100%)
+    background: linear-gradient(45deg, rgba(0,177,64,1) 35%, rgba(0,191,179,1) 100%)
+  &.turq-to-emerald
+    background: -webkit-linear-gradient(45deg, #02594F 20%, #00B140 90%)
+    background: -o-linear-gradient(45deg, #02594F 20%, #00B140 90%)
+    background: linear-gradient(45deg, #02594F 20%, #00B140 90%)
+
+  .hero-text
+    position: relative
+    z-index: 1
+    h1
+      display: block
+      margin: 0
+      @include screen($tablet)
+      @include screen($desktop)
+        width: 80%
+      @include screen($large)
+        width: 66%
+
+  .hero-bg-image
+    @include screen($tablet)
+      position: absolute
+      display: none
+      background-position: right bottom
+      background-size: contain
+      top: 0
+      bottom: 0
+      right: 0
+      left: 50%
+      background-repeat: no-repeat
+    @include screen($desktop)
+    @include screen($large)
+
+// Solutions panels____________________
+.solution
+  padding: 1.5rem
+  color: $white
+  &:nth-of-type(1)
+    background-color: $turquoise
+  &:nth-of-type(2)
+    background-color: $emerald
+  &:nth-of-type(3)
+    background-color: $cyan
+  &:nth-of-type(4)
+    background-color: $green
+
+  @include screen($tablet)
+    position: relative
+    padding-bottom: calc(1.5rem + 36px)
+
+    a.button
+      position: absolute
+      bottom: 1.5rem
+      left: 1.5rem
+
+
+// Advocacy___________________________
+.advocacy
+  display: flex
+  flex-wrap: wrap
+
+  div
+    width: 50%
+    padding: 0.75rem
+    a
+      display: block
+
+  @include screen($tablet)
+    padding: 1rem
+    div
+      width: 25%
+      padding: 1.5rem
+
+  @include screen($desktop)
+    flex-wrap: nowrap
+    div
+      padding: 0 1.5rem
+      max-width: 250px
+      &:first-of-type
+        padding-left: 0
+      &:last-of-type
+        padding-right: 0
+
+// Hero case study_____________________
+a.hero-case-study
+  background-size: cover
+  background-repeat: no-repeat
+  position: relative
+  text-align: center
+  display: block
+  transition: all 0.2s ease
+  &:hover
+    transform: translateY(-3px)
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.6)
+
+  img
+    display: inline-block
+    width: 50%
+    padding: 3rem 0
+
+// Contact CTA
+.contact-cta
+  text-align: center
+  color: $white
+  // background-color: $turquoise
+  background: linear-gradient(45deg, #02594F 20%, #00B140 90%)

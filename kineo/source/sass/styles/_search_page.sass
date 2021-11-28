@@ -1,0 +1,53 @@
+// Search results page
+.re-search
+  margin-bottom: $space2
+
+  input[type=text]
+    border-radius: 0
+    box-sizing: border-box
+    font-family: 'Nunito Sans', sans-serif
+    padding: 0.75rem
+    border: 1px solid $dark-grey
+    background-color: $light-grey
+    color: $black
+    font-size: 1.1rem
+    height: auto
+    width: 100%!important
+    max-width: 100%
+    &::placeholder
+      color: rgba(0,0,0,0.7)
+      font-size: 1.1rem
+
+  input[type=submit]
+    width: auto
+    text-transform: uppercase
+    font-size: 0.8rem
+    border: 1px solid $dark-grey
+    letter-spacing: 2px
+    cursor: pointer
+    padding: .7rem 1.5rem
+    font-weight: bold
+    color: $black
+    transition: all 0.2s ease
+    font-family: 'Nunito Sans', sans-serif
+    border-radius: 0px
+    text-shadow: none
+    box-shadow: none
+    height: auto
+    margin-left: 0.5rem
+    float: right
+    // hover over button
+    &:hover
+      background-color: $black
+      color: $white
+      border: 1px solid $black
+
+
+
+.results
+  @include screen($tablet)
+    min-height: 500px
+
+  .result
+    margin: $space1 0
+    border-bottom: 1px solid $dark-grey

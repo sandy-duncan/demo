@@ -1,0 +1,36 @@
+{{ partial:resources-banner }}
+
+<section>
+
+  <div class="container grid cols-6-6">
+
+    <div class="col">
+      <div class="soundcloud-embed">
+        {{ soundcloud_embed }}
+      </div>
+      <div class="use-read-more">
+        {{ full_bard_1 }}
+          {{ partial:bards/full_bard_1 }}
+        {{ /full_bard_1 }}
+        <span class="read-more-link smallcaps bold">Read more...</span>
+      </div>
+      {{ partial:components/related_tags }}
+    </div><!-- close col-->
+
+    {{ if author }}
+      <div class="col">
+        {{ partial:components/speakers_accordion }}
+      </div>
+    {{ /if }}
+
+  </div><!-- close container grid -->
+
+  {{ partial:components/share_links }}
+
+</section>
+
+{{ partial:components/related_posts }}
+
+{{ if hide_contact_form != "true" }}
+  {{ partial:footer-form-container }}
+{{ /if }}

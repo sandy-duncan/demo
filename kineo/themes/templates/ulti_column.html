@@ -1,0 +1,25 @@
+
+{{ partial:page-banner }}
+
+
+{{ flexible }}
+
+  {{ if type == "section" }}
+    <section style="background:pink;">
+      <div class="container">
+        {{ row }}
+          <div class="row">
+            {{ column }}
+              <div class="column {{ column_width }}">
+                {{ full_bard_2 }}
+                  {{ partial:bards/full_bard_2 }}
+                {{ /full_bard_2 }}
+              </div>
+            {{ /column }}
+          </div>
+        {{ /row }}
+      </div>
+    </section>
+  {{ /if }}
+
+{{ /flexible }}

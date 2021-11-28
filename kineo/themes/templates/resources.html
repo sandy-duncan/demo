@@ -1,0 +1,57 @@
+{{ partial:page-banner }}
+
+<section>
+  <div class="container">
+
+    <div class="filters for-solution">
+      <a id="clear-filters" href="{{ url }}">All solutions</a>
+      {{ taxonomy from="solution" show="all" sort="list" }}
+        <a href="{{ url }}">{{ title }}</a>
+      {{ /taxonomy }}
+    </div>
+
+    <div class="grid small-gap resources-layout">
+      {{ collection from="blogs|events|news|podcasts|reports|webinars|deep_dives" hide:is="false" paginate="true" limit="8" as="previews" show_future="true" }}
+
+        {{ previews limit="2" }}
+          <div class="col">
+            {{ partial:components/resource_preview }}
+          </div>
+        {{ /previews }}
+
+        <div class="col">
+          <div class="newsletter-subscribe">
+            <p class="smallcaps bold">{{ newsletter_pre_heading }}</p>
+            <hr>
+            <h3>{{ newsletter_heading }}</h3>
+            <p>{{ newsletter_text }}</p>
+            {{ relate:newsletter_link }}
+              <a class="button inverted" href="{{ url }}">{{ newsletter_button_text }}</a>
+            {{ /relate:newsletter_link }}
+          </div>
+        </div>
+
+        {{ previews offset="2" }}
+          <div class="col">
+            {{ partial:components/resource_preview }}
+          </div>
+        {{ /previews }}
+
+        <div class="pagination-controls">
+          {{ paginate }}
+            {{ auto_links }}
+          {{ /paginate }}
+        </div>
+
+      {{ /collection }}
+    </div>
+
+  </div>
+</section>
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

@@ -1,0 +1,47 @@
+
+<section class="bg-emerald relative">
+
+  <span class="trick-bg"></span>
+
+  <div class="v-tab-container relative">
+
+    <div class="v-tab-headings">
+      <h2 class="white coloured-cols-pre-head">{{ pre_heading }}</h2>
+      <h3 class="white coloured-cols-head">{{ heading }}</h3>
+    </div>
+
+    <div class="grid cols-4-8 coloured-cols">
+
+      {{# grey left panel #}}
+      <div class="col left-panel-coloured no-mobile">
+        <h3>{{ heading }}</h3>
+        <ul class="v-tab-nav">
+          {{ tab_item }}
+          	<li class="v-tab-label smallcaps bold" data-id="-{{ index }}">{{ tab_label }}</li>
+          {{ /tab_item }}
+        </ul>
+      </div>
+
+      {{# coloured right panel #}}
+      <div class="col v-tab-right-col" id="get-left">
+       {{ tab_item }}
+
+        <div class="mobile-v-tab smallcaps bold">
+          {{ tab_label }}
+          <i class="fas fa-chevron-down tab-toggle"></i>
+        </div>
+
+        <div class="v-tab-right-panel" id="v-panel-{{ index }}">
+          {{ tab_content.full_bard_1 }}
+            {{ partial:bards/full_bard_1 }}
+          {{ /tab_content.full_bard_1 }}
+        </div>
+
+       {{ /tab_item }}
+      </div>
+
+    </div><!-- close grid -->
+
+  </div><!--  close container -->
+
+</section>

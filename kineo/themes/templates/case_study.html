@@ -1,0 +1,152 @@
+
+{{ partial:page-banner }}
+
+{{ canvas }}
+
+  {{ if type == "1_column_section" }}
+
+    {{ partial:canvas/1_column_section }}
+
+  {{ elseif type == "2_column_section" }}
+
+    {{ partial:canvas/2_column_section_margin_control }}
+
+  {{ elseif type == "3_column_section" }}
+
+    {{ partial:canvas/3_column_section }}
+
+  {{ elseif type == "counter_section" }}
+
+    {{ partial:canvas/counter_section }}
+
+  {{ elseif type == "spacer" }}
+
+    {{ partial:canvas/spacer }}
+
+  {{ elseif type == "project_features" }}
+
+    <section class="{{ background_colour.label }}{{ if white_text }} white{{ /if }}" {{ asset:background_image }} style="background-image: url('{{ glide:url }}'); background-position: {{ focus_css }}" {{ /asset:background_image }}>
+      <div class="container small-v-margin project-features">
+        {{ if locale == "es" }}
+          <h3 class="mt0">Características del proyecto</h3>
+        {{ else }}
+          <h3 class="mt0">Key project features</h3>
+        {{ /if }}
+        <div class="flex-wrap justify-between">
+          {{ features }}
+              <div class="feature flex">
+                <img src="{{ glide:icon width="80" }}" alt="Kineo logo">
+                <span class="smallcaps bold">{{ feature_text }}</span>
+              </div>
+          {{ /features }}
+        </div>
+      </div>
+    </section>
+
+  {{ elseif type == "project_results" }}
+
+      <section class="bg-grey">
+        <div class="container small-v-margin project-features">
+          {{ if locale == "es" }}
+            <h3 class="mt0">{{ overwrite_title or title }} Resultados</h3>
+          {{ else }}
+            <h3 class="mt0">{{ overwrite_title or title }} Results</h3>
+          {{ /if }}
+          <div class="results-icons">
+            {{ features }}
+              <div class="result">
+                <img src="{{ glide:icon width="80" }}" alt="Kineo logo">
+                <span class="smallcaps bold">{{ feature_text }}</span>
+              </div>
+            {{ /features }}
+          </div>
+        </div>
+      </section>
+
+  {{ elseif type == "how_section" }}
+
+    <section class="{{ background_colour.label }}{{ if white_text }} white{{ /if }}{{ if border_bottom }} border-bottom{{ /if }}" {{ asset:background_image }} style="background-image: url('{{ glide:url }}'); background-position: {{ focus_css }}" {{ /asset:background_image }}>
+
+      <div class="container">
+
+        <div>
+          {{ content_above_list.basic_bard }}
+            {{ partial:bards/basic_bard }}
+          {{ /content_above_list.basic_bard }}
+        </div>
+
+        <div class="grid {{ number_of_columns }}">
+
+          {{ list_item }}
+
+            <div class="col flex">
+
+              {{ if list_icon }}
+                {{ assets:list_icon }}
+                  <div>
+                    <img src="{{ url }}" alt="{{ alt }}" class="how-module">
+                  </div>
+                {{ /assets:list_icon }}
+              {{ /if }}
+
+              <div>
+                {{ list_item_content.basic_bard }}
+                  {{ partial:bards/basic_bard }}
+                {{ /list_item_content.basic_bard }}
+              </div>
+
+            </div>
+
+          {{ /list_item }}
+
+        </div>
+
+      </div>
+    </section>
+
+  {{ elseif type == "left_overlay_section" }}
+
+    {{ partial:canvas/left_overlay }}
+
+  {{ /if }}
+{{ /canvas }}
+
+{{ partial:components/share_links }}
+
+{{ if related_case_study }}
+  {{ relate:related_case_study }}
+    <section>
+      <hr>
+      <div class="container grid cols-4-8">
+        <div class="col">
+          <picture>
+            {{ assets:related_entry_image }}
+              <source media="(max-width: 599px)" srcset="{{ glide:url width="400" format="webp" }}" type="image/webp">
+              <source media="(max-width: 599px)" srcset="{{ glide:url width="400" }}">
+              <source srcset="{{ glide:url format="webp" width="320" }}" type="image/webp">
+              <img src="{{ glide:url }}" alt="{{ alt }}" loading="lazy">
+            {{ /assets:related_entry_image}}
+          </picture>
+        </div>
+        <div class="col">
+          {{ if locale == "es" }}
+            <p class="pre-heading">CASOS DE ESTUDIO</p>
+            <h3>{{ teaser_text }}</h3>
+            <a href="{{ url }}" class="button">VER NUESTRO TRABAJO</a>
+          {{ else }}
+            <p class="pre-heading">case study</p>
+            <h3>{{ teaser_text }}</h3>
+            <a href="{{ url }}" class="button">see the work</a>
+          {{ /if }}
+        </div>
+      </div>
+    </section>
+  {{ /relate:related_case_study }}
+{{ /if }}
+
+{{ if add_contact_form }}
+  {{ partial:footer-form-container }}
+{{ /if }}
+{{ if add_contact_cta }}
+  {{ partial:contact-cta }}
+{{ /if }}

@@ -1,0 +1,106 @@
+{{ partial:page-banner }}
+
+
+<section>
+  <div class="container">
+
+    <div class="compare-panels flex">
+      {{ comparison_panels }}
+        <div class="product-panel {{ panel_width }}">
+          <div class="panel-text">
+            {{ panel }}
+          </div>
+          <div class="panel-cta">
+            <span class="button no-arrow open-pop-up">Compare</span>
+          </div>
+        </div>
+      {{ /comparison_panels }}
+    </div>
+
+  </div>
+</section>
+
+<section class="pop-up-wrapper">
+  <div class="comparison-wrapper">
+    <div class="comparison-table">
+      <span id="close-pop-up">&times;</span>
+      <h2>Comparison table</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius in, autem! Sapiente blanditiis ratione assumenda cum veritatis illum pariatur, quas eum voluptates nisi laborum provident optio odio velit aperiam suscipit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi adipisci blanditiis consequatur, deserunt, debitis omnis, nobis reiciendis id doloribus, odit sunt. Cumque modi ipsa suscipit. Similique dolorem, ipsa nostrum vero.</p>
+      <table>
+        {{ comparison_table }}
+          <tr>
+          {{ cells }}
+            {{ if value === 'y' }}
+              <td class="check">&check;</td>
+            {{ else }}
+              <td>{{ value }}</td>
+            {{ /if }}
+          {{ /cells }}
+          </tr>
+        {{ /comparison_table }}
+
+        {{ comparison_table }}
+          <tr>
+          {{ cells }}
+            {{ if value === 'y' }}
+              <td class="check">&check;</td>
+            {{ else }}
+              <td>{{ value }}</td>
+            {{ /if }}
+          {{ /cells }}
+          </tr>
+        {{ /comparison_table }}
+
+        {{ comparison_table }}
+          <tr>
+          {{ cells }}
+            {{ if value === 'y' }}
+              <td class="check">&check;</td>
+            {{ else }}
+              <td>{{ value }}</td>
+            {{ /if }}
+          {{ /cells }}
+          </tr>
+        {{ /comparison_table }}
+
+        {{ comparison_table }}
+          <tr>
+          {{ cells }}
+            {{ if value === 'y' }}
+              <td class="check">&check;</td>
+            {{ else }}
+              <td>{{ value }}</td>
+            {{ /if }}
+          {{ /cells }}
+          </tr>
+        {{ /comparison_table }}
+
+        {{ comparison_table }}
+          <tr>
+          {{ cells }}
+            {{ if value === 'y' }}
+              <td class="check">&check;</td>
+            {{ else }}
+              <td>{{ value }}</td>
+            {{ /if }}
+          {{ /cells }}
+          </tr>
+        {{ /comparison_table }}
+
+        {{ comparison_table }}
+          <tr>
+          {{ cells }}
+            {{ if value === 'y' }}
+              <td class="check">&check;</td>
+            {{ else }}
+              <td>{{ value }}</td>
+            {{ /if }}
+          {{ /cells }}
+          </tr>
+        {{ /comparison_table }}
+
+      </table>
+
+    </div>
+  </div>
+</section>

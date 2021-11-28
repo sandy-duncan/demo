@@ -1,0 +1,143 @@
+
+<section class="{{ background_colour.label }}{{ if border_bottom }} border-bottom{{ /if }}">
+
+  {{ if content_type == "resources" }}
+
+    <div class="container relative mb0">
+      <div class="above-carousel">
+        {{ content_above_carousel.basic_bard }}
+          {{ partial:bards/basic_bard }}
+        {{ /content_above_carousel.basic_bard }}
+      </div>
+      <div class="controls">
+        <div class="previous-slide" id="previous-news">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="next-slide" id="next-news">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="container for-carousel {{ background_colour.label }}">
+      <div class="news-carousel">
+        {{ collection from="*" not_from="case_studies" limit="8"}}
+          <div class="cell wider">
+            <a class="resource-preview" href="{{ url }}" tabindex="-1">
+              <div class="preview-inner" style="background: {{ colour.value }};">
+                <p class="smallcaps bold">{{ pretty_name }}</p>
+                <h3>{{ title }}</h3>
+                <p>{{ snippet }}</p>
+                <span class="read-more smallcaps bold">READ MORE</span>
+                <div class="date-box smallcaps bold">
+                  <span class="day">{{ date format="d" }}</span><br>
+                  <span>{{ date format="M" }}</span>
+                  <span>{{ date format="Y" }}</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        {{ /collection }}
+
+        <div class="cell wider">
+          <a class="resource-preview" href="/resources" tabindex="-1">
+            <div class="preview-inner" style="background: black;">
+              <p class="smallcaps bold">Resources</p>
+              <h3>We love to share - our thoughts, expertise and sense of fun</h3>
+              <p>Browse our recent podcasts, webinars, reports and blog posts on everything L&D-related. Whatever we're up to right now, you'll find it here. Dig in and be inspired.</p>
+              <span class="button inverted">View all</span>
+              <span class="read-more smallcaps bold">See more</span>
+            </div>
+          </a>
+        </div>
+
+      </div><!-- close carousel -->
+    </div><!-- close container -->
+
+  {{ elseif content_type == "case-studies" }}
+
+    <div class="container relative mb0">
+      <div class="above-carousel">
+        {{ content_above_carousel.basic_bard }}
+          {{ partial:bards/basic_bard }}
+        {{ /content_above_carousel.basic_bard }}
+      </div>
+      <div class="controls">
+        <div class="previous-slide" id="previous-case">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="next-slide" id="next-case">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="container for-carousel {{ background_colour.label }}">
+      <div class="case-carousel">
+        {{ collection:case_studies limit="12" }}
+          <div class="cell">
+            <a class="case-preview" href="{{ url }}" tabindex="-1">
+              <div class="case-inner" {{ asset:preview_panel_image }} style="background-image: url('{{ glide:url width='350' quality='80' }}'); background-position: {{ focus_css }}" {{ /asset:preview_panel_image }}>
+                {{ if locale == "es" }}
+                  <span class="smallcaps bold">caso de estudio</span>
+                {{ else }}
+                  <span class="smallcaps bold">CASE STUDY</span>
+                  <span class="read-more smallcaps bold">READ MORE</span>
+                {{ /if }}
+                <picture class="case-logo">
+                  {{ assets:brand_logo }}
+                    <source srcset="{{ glide:url width="250" format="webp" }}" type="image/webp">
+                    <img src="{{ glide:url width="250" }}" alt="{{ alt }}" loading="lazy">
+                  {{ /assets:brand_logo }}
+                </picture>
+                <p class="case-teaser">{{ teaser_text | widont }}</p>
+                {{ if overlay }}
+                  <div class="overlay">
+                  </div>
+                {{ /if }}
+              </div>
+            </a>
+          </div>
+        {{ /collection:case_studies }}
+      </div><!-- close carousel -->
+    </div>
+
+  {{ elseif content_type == "custom" }}
+
+    <div class="container relative mb0">
+      <div class="above-carousel">
+        {{ content_above_carousel.basic_bard }}
+          {{ partial:bards/basic_bard }}
+        {{ /content_above_carousel.basic_bard }}
+      </div>
+      <div class="controls">
+        <div class="previous-slide" id="previous-custom">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="next-slide" id="next-custom">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="container for-carousel">
+      <div class="custom-carousel">
+        {{ slides }}
+          <div class="cell" tabindex="-1">
+            <div class="custom-inner">
+              <picture>
+                {{ assets:slide_image }}
+                  <source srcset="{{ glide:url width="310" format="webp" }}" type="image/webp">
+                  <img src="{{ glide:url width="310" }}" alt="{{ alt }}">
+                {{ /assets:slide_image }}
+              </picture>
+              {{ slide_text }}
+            </div>
+          </div>
+        {{ /slides }}
+      </div>
+    </div>
+
+  {{ /if }}
+
+</section>

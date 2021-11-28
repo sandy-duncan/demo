@@ -1,0 +1,116 @@
+// CASE STUDIES PARENT AND ENTRY PAGE_____
+
+// Parent page
+// Uses grid small-gap
+.case-studies-layout
+  .col
+    height: 550px
+    @include screen($tablet)
+      height: 650px
+      grid-column: span 3
+
+// Case study preview panels
+.case-preview
+  height: 100%
+  display: block
+  &:hover
+    text-decoration: none
+
+  .case-inner
+    height: 100%
+    padding: $space1
+    background-size: cover
+    color: $white
+    position: relative
+    transition: box-shadow 0.2s ease, transform 0.2s ease
+    transform: translateY(3px)
+    background-color: $dark-grey
+    p
+      font-size: 1rem
+      line-height: 1.5rem
+    a
+      height: auto
+    &:hover
+      box-shadow: 0 5px 10px 0 rgba(0,0,0,0.6)
+      transform: translateY(0)
+      span.read-more
+        transform: translateY(0)
+        opacity: 1
+
+    span.read-more
+      position: absolute
+      right: $space1
+      bottom: $space1
+      transform: translateY(30px)
+      opacity: 0
+      transition: transform 0.2s ease
+
+    picture.case-logo img
+      margin: $space1 0
+
+    .tags
+      span
+        background-color: $dark-grey
+        color: $white
+        font-size: 0.8rem
+        padding: 5px 12px
+        border-radius: 20px
+        margin: 0 10px 10px 0
+        white-space: nowrap
+        display: inline-block
+        border: 1px solid $light-grey
+
+    img, span, p, i
+      position: relative
+      z-index: 2
+
+.overlay
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 35%, transparent 100%)
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 1
+
+// CASE STUDY PAGE
+
+// project features
+.project-features
+  overflow: auto
+  .feature
+    align-items: center
+    img
+      max-width: 80px
+      margin-right: $space1
+
+// results
+.results-icons
+  @include screen($tablet)
+    display: flex
+    justify-content: space-between
+
+  .result
+    margin-bottom: $space1
+    text-align: center
+    align-items: center
+    display: flex
+    &:last-child
+      margin-bottom: 0
+    @include screen($tablet)
+      display: block
+
+    img
+      max-width: 80px
+      margin: 0 $space1 0 0
+      @include screen($tablet)
+        margin: auto
+        padding: 0 0 0.5rem 0
+
+// how did they do it?
+.how-module
+  width: 65px
+  margin-right: 0.5rem
+  @include screen($tablet)
+    width: 80px
+    margin-right: $space1

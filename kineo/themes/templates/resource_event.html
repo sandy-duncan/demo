@@ -1,0 +1,35 @@
+{{ partial:resources-banner }}
+
+<section>
+
+  <div class="container grid cols-6-6">
+
+    <div class="col">
+      {{ full_bard_1 }}
+        {{ partial:bards/full_bard_1 }}
+      {{ /full_bard_1 }}
+      {{ partial:components/related_tags }}
+    </div><!-- close col-->
+
+    <div class="col">
+      <div class="event-map">
+        <h3>Event details</h3>
+        {{ event_details }}
+
+        {{ map_embed }}
+
+        <a href="{{ event_link }}" class="button" target="_blank">{{ button_text }}</a>
+      </div>
+    </div>
+
+  </div><!-- close container grid -->
+
+  {{ partial:components/share_links }}
+
+</section>
+
+{{ partial:components/related_posts }}
+
+{{ if hide_contact_form != "true" }}
+  {{ partial:footer-form-container }}
+{{ /if }}
